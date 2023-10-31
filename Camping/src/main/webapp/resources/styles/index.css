@@ -1,12 +1,99 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
 
-body{
-	margin:0;
+body {
+	margin: 0;
 }
- 
-.img{
-	background-image: url("./test.jpg");
-	    width: 100%;
-    height: 100vh;
-    background-size: 100% 100%;
+
+.img {
+	background-image: url("../img/index.jpg");
+	width: 100%;
+	height: 100vh;
+	background-size: 100% 100%;
+}
+
+.text_wrap {
+	background-color: rgba(0, 0, 0, 0.35);
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.first_ment {
+	width: 87%;
+	height: 100%;
+	position: absolute;
+	left: 5%;
+}
+
+.ment_main {
+	position: relative;
+	top: 29%;
+	left: 0%;
+}
+
+.ment_foint {
+	text-align: center;
+	font-family: 'pretendard-bola';
+	line-height: 1;
+	color: white;
+	position: absolute;
+	width: 87%;
+	height: 8%;
+	top: 43%;
+	left: 5%;
+}
+
+.ment {
+	position: absolute;
+	width: 100%;
+	top: 39%;
+	right: 0;
+	color: white;
+}
+
+.mainbtn {
+	width: 87%;
+	height: 10%;
+	position: absolute;
+	top: 54%;
+	left: 5%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+} 
+
+.btn {
+	font-weight: bold;
+	font-size: 17px;
+	border: 2px solid rgba(255, 255, 255, 0.7);
+	border-radius: 24px;
+	width: 14%;
+	height: 47%;
+	top: 24%;
+	position: absolute;
+	text-align: center;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	letter-spacing: 1.5px;
+	cursor: fointer;
+}
+
+button {
+	-text: #fff;
+	letter-spacing: .5px;
+	color: var(- -text);
+} 
+
+a{
+	cursor: pointer;
+}
+
+.btn:hover{
+	    color: #1e6b7b;
+    background: aliceblue;
+    transform: scale(1.1);
 }

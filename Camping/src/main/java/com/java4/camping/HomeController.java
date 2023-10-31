@@ -55,5 +55,4 @@ public class HomeController {
 		return "admin";
 	}
 	
-	
 }
