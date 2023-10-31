@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+body {
+
+	padding-top: 0px;
+
+	
+}
+.bg-dark {
+	 position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
