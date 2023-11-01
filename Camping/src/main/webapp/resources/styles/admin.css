@@ -1,0 +1,22 @@
+@charset "UTF-8";
+body {
+	margin: 0;
+}
+.container {
+	display: grid;
+	width: 1000px;
+	height: 800px;
+	border: solid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr; 
+}
+
+.title {
+	grid-column: 1/5;
+	grid-row: 1/2;
+	text-align: center;
+}
+
+.login_submit {
+	margin-top: 10px;
+}

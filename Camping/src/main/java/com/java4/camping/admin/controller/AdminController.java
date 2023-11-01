@@ -18,16 +18,16 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
-	@RequestMapping(value = "/adminregist", method = RequestMethod.GET)
+	@RequestMapping(value = "/regist", method = RequestMethod.GET)
 	public String regist() {
-		return "admin/adminregist";
+		return "admin/admin";
 	}
 
-	@RequestMapping(value = "/adminregist", method = RequestMethod.POST)
+	@RequestMapping(value = "/regist", method = RequestMethod.POST)
 	public String registPost(@RequestParam Map<String, String> map) {
 		adminService.add(new Admin(map.get("admin-name"), map.get("admin-id"), map.get("admin-pw")));
 
-		return "redirect:/adminregist";
+		return "redirect:/admin";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
