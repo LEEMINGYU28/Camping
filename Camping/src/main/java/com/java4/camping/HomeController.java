@@ -24,20 +24,13 @@ public class HomeController {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
 
 		return "home";
 	}
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index(Locale locale, Model model) {
+		
 
 		return "index";
 	}
@@ -52,4 +45,20 @@ public class HomeController {
 	public String main(Locale locale, Model model) {
 		return "main";
 	}
+	
+	@RequestMapping(value = "/announcement", method = RequestMethod.GET)
+	public String announcement(Locale locale, Model model) {
+		return "announcement";
+	}
+	
+	@RequestMapping(value = "/review", method = RequestMethod.GET)
+	public String review(Locale locale, Model model) {
+		return "review";
+	}
+	
+	@RequestMapping(value = "/fee", method = RequestMethod.GET)
+	public String fee(Locale locale, Model model) {
+		return "fee";
+	}
+	
 }

@@ -11,7 +11,7 @@
 <footer class="camping-footer">
     <div class="container">
         <div class="footer-content">
-            <img src="./resources/img/campingLogo.jpg" alt="Campfire Icon">
+            <img src="./resources/img/campingLogo3.jpg" alt="Campfire Icon">
             <p>Contact us: contact@campingsite.com</p>
             <ul>
                 <li><a href="/about">About us</a></li>

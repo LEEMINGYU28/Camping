@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>너의 아지트가 되어줄게</title>
-<link href="resources/styles/main.css" rel="stylesheet" />
+<link href="resources/styles/fee.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -15,28 +15,8 @@
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
-	<div>
-		<div class="bannerImg"></div>
-		<div class="gallery">
-			<div>
-				<p>
-					<span>CAMP 갤러리</span>
-				</p>
-			</div>
-			<div class="image-list">
-				<c:forEach var="image" items="${imageList}">
-					<img src="<c:out value="${image}" />" alt="Camp Image"
-						class="gallery-image">
-				</c:forEach>
-			</div>
-		</div>
-		<div class="mainAnnouncement">
-			<div>
-				<p>
-					<span>공지사항</span>
-				</p>
-			</div>
-		</div>
+	<div class="container">
+		<div class="feeImg"></div>
 	</div>
 	<footer>
 		<jsp:include page='../../layout/footer.jsp'>
