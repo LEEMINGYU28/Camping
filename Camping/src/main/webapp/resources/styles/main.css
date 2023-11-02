@@ -7,11 +7,36 @@ body{
 .bannerImg{
 	background-image: url("../img/main2.jpg");
 	width: 100%;
-    height: 100vh;
+    height: 80vh;
     background-size: 100% 100%;
+    text-align: center;
+    color : white;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
 }
 
+.bannerImg h1 {
+    margin: 5px;
+    font-size: 2em;
+    line-height: 1.2;
+    font-weight:bold;
+}
+
+.bannerImg .bannerSeparator {
+    width: 100px;
+    height: 2px;
+    margin: 10px;
+}
+
+.bannerImg h2 {
+    font-size: 1.8em;
+}
+
+
 .gallery{
+	padding-top:30px;
 	padding-left:32px;
 	padding-right:32px;
 }
@@ -36,7 +61,7 @@ body{
     align-items: center;
     display: flex;
 	font-size: 30px;
-	color: #000;
+	color: #162735;
 	font-weight: bold;
 	
 }

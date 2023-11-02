@@ -61,4 +61,8 @@ public class HomeController {
 		return "fee";
 	}
 	
+	@RequestMapping(value = "/reserve", method = RequestMethod.GET)
+	public String reserve(Locale locale, Model model) {
+		return "reserve";
+	}
 }

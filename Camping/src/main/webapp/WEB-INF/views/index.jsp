@@ -25,7 +25,7 @@
 				</h1>
 			</div>
 			<div class="mainbtn">
-				<a type="button" class="btn" onclick="location.href='main.jsp'">입장하기</a>
+				<a type="button" class="btn" onclick="location.href='main'">입장하기</a>
 			</div>
 		</div>
 	</div>
