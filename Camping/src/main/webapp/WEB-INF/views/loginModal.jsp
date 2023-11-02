@@ -8,8 +8,10 @@
 <title>로그인 모달</title>
 <link href="resources/styles/modal.css" rel="stylesheet" />
 <link href="resources/styles/consent.css" rel="stylesheet" />
+<link href="resources/styles/join.css" rel="stylesheet" />
 <script type="text/javascript" src="resources/script/modal.js"></script>
 <script type="text/javascript" src="resources/script/consent.js"></script>
+<script type="text/javascript" src="resources/script/join.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -23,10 +25,11 @@
 			</div>
 			<div class="close-area">X</div>
 			<div class="content">
-				<input type="text" id="username" placeholder="아이디"> <input
-					type="password" id="password" placeholder="비밀번호">
+				<input type="text" id="userId" name="userPw" placeholder="아이디"> <input
+					type="password" id="userPw" name="userPw" placeholder="비밀번호">
 				<button id="login-button">로그인</button>
-				<a class="join" type="button" id="signup-button" style="cursor: pointer;">회원가입</a>
+				<a class="join" type="button" id="signup-button"
+					style="cursor: pointer;">회원가입</a>
 			</div>
 			<div class="maintain">
 				<label for="remember-me" id="remember-me-label">로그인상태유지</label> <input
@@ -166,5 +169,33 @@
 			</div>
 		</div>
 	</div>
+
+	<div id="joinModal" class="join-modal-overlay">
+		<div class="join-modal-window">
+			<div class="profileImg">
+				<img src="resources/img/profile.png" alt="">
+			</div>
+			<div class="title">
+				<h2>회원가입</h2>
+			</div>
+			<div class="join-close-area">X</div>
+			<div class="join-content">
+				<input type="text" id="userId" name="userId" placeholder="아이디"> <input
+					type="password" id="userPw" name="userPw" placeholder="비밀번호"> <input
+					type="password" id="passwordCheck" placeholder="비밀번호 확인"> <span
+					id="passwordMessage" style="color: red;"></span> <span
+					id="passwordCheckMessage" style="color: red;"></span>
+			</div>
+			<div class="input-name">
+				<label>이름</label>
+				<div class="input-form-name">
+					<input title="이름을(를) 입력하세요" type="text" id="name" name="name"
+						placeholder="이름을(를) 입력하세요">
+				</div>
+			</div>
+			<button type="submit" id="joinBtn">가입하기</button>
+		</div>
+	</div>
+
 </body>
 </html>

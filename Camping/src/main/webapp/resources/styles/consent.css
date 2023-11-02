@@ -44,6 +44,7 @@
 #consentModal .title h2 {
 	display: inline;
 }
+
 #consentModal .close-areas {
 	display: inline;
 	float: right;
@@ -64,13 +65,14 @@
 
 #nextModalbtn {
 	left: 51%;
+
 }
 
 #closeModalbtn {
 	left: 5%;
 }
 
-#closeModalbtn,#nextModalbtn {
+#closeModalbtn, #nextModalbtn {
 	width: 44%;
 	top: 88%;
 	position: absolute;

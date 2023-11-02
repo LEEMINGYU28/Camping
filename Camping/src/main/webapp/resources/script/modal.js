@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	let loginmodal = document.getElementById("modal");
 	let btnModal = document.getElementById("btn-modal");
 	let closeBtn = document.querySelector(".close-area");
-	let usernameInput = document.getElementById("username");
-	let passwordInput = document.getElementById("password");
+	let usernameInput = document.getElementById("userId");
+	let passwordInput = document.getElementById("userPw");
 	let loginButton = document.getElementById("login-button");
 
 	btnModal.addEventListener("click", () => {
