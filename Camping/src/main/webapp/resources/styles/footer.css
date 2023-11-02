@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* body {
+	margin: 0;
+}
+
+.footerContainer {
+	 background-color: #f2f2f2;
+    text-align: center;
+    padding: 20px;
+} */
+
+
+
+.camping-footer {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+} */
+
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    display: inline;
+    margin: 0 10px;
+}
