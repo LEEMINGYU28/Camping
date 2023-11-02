@@ -13,6 +13,10 @@ public class AdminService {
 	@Autowired
 	AdminDAO adminDAO;
 
+//	public Admin getAdminById(int id) {
+//		return adminDAO.get(id);
+//	}
+
 	public void add(Admin admin) {
 		admin.setAdminPw(cryptoPassword(admin.getAdminPw()));
 		adminDAO.add(admin);
@@ -42,4 +46,6 @@ public class AdminService {
 			return null;
 		}
 	}
+
+
 }

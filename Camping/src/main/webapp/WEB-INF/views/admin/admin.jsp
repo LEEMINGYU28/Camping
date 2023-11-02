@@ -16,12 +16,15 @@
 .container {
 	padding: 0px;
 }
+
 a:not([href]):not([tabindex]) {
 	color: white;
 }
-.nav-link{
+
+.nav-link {
 	color: white;
 }
+
 .modal-content {
 	background-color: #fefefe;
 	margin: 20% auto; /* 15% from the top and centered */
@@ -32,6 +35,7 @@ a:not([href]):not([tabindex]) {
 </style>
 </head>
 <body>
+<% %>
 	<div class="container">
 
 		<div class="title">
@@ -76,40 +80,45 @@ a:not([href]):not([tabindex]) {
 
 				</div>
 			</nav>
+
+			<div class="notice-list">
+				<jsp:include page="/WEB-INF/views/admin/list.jsp" />
+			</div>
+
 		</div>
 
 		<div class="modal">
 			<div class="modal-content">
 				<span class="close">&times;</span>
-					<c:choose>
-						<c:when test="${adminName == null }">
-							<form action="/camping/login" method="post">
-								<label for="admin-id" class="sr-only"><font
-									style="vertical-align: inherit;"><font
-										style="vertical-align: inherit;"></font></font></label> <input type="text"
-									id="admin-id" class="form-control" placeholder="아이디 입력"
-									name="admin-id" id="admin-id"> <label for="admin-pw"
-									class="sr-only"><font style="vertical-align: inherit;"><font
-										style="vertical-align: inherit;">비밀번호</font></font></label> <input
-									type="password" id="admin-pw" class="form-control"
-									placeholder="비밀번호" name="admin-pw">
-								<button>로그인</button>
-							</form>
-						</c:when>
-						<c:when test="${adminName =! null }">
-							<form action="/camping/logout" method="post">
-								<button>로그아웃</button>
-							</form>
-						</c:when>
-					</c:choose>
-					<p class="mt-5 mb-3 text-muted">
-						<font style="vertical-align: inherit;"><font
-							style="vertical-align: inherit;">© 2023-11-01</font></font>
-					</p>
-				</div>
-
+				<c:choose>
+					<c:when test="${adminName == null }">
+						<form action="/camping/login" method="post">
+							<label for="admin-id" class="sr-only"><font
+								style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;"></font></font></label> <input type="text"
+								id="admin-id" class="form-control" placeholder="아이디 입력"
+								name="admin-id" id="admin-id"> <label for="admin-pw"
+								class="sr-only"><font style="vertical-align: inherit;"><font
+									style="vertical-align: inherit;">비밀번호</font></font></label> <input
+								type="password" id="admin-pw" class="form-control"
+								placeholder="비밀번호" name="admin-pw">
+							<button>로그인</button>
+						</form>
+					</c:when>
+					<c:when test="${adminName != null }">
+						<form action="/camping/logout" method="post">
+							<button>로그아웃</button>
+						</form>
+					</c:when>
+				</c:choose>
+				<p class="mt-5 mb-3 text-muted">
+					<font style="vertical-align: inherit;"><font
+						style="vertical-align: inherit;">© 2023-11-01</font></font>
+				</p>
 			</div>
+
 		</div>
+	</div>
 
 
 	<div class="modal">
@@ -124,20 +133,18 @@ a:not([href]):not([tabindex]) {
 					class="sr-only"><font style="vertical-align: inherit;"><font
 						style="vertical-align: inherit;"></font></font></label> <input type="password"
 					id="admin-pw" class="form-control" placeholder="비밀번호"
-					name="admin-pw">
-					<label for="admin-id" class="sr-only"><font
+					name="admin-pw"> <label for="admin-id" class="sr-only"><font
 					style="vertical-align: inherit;"><font
 						style="vertical-align: inherit;"></font></font></label> <input type="text"
 					id="admin-name" class="form-control" placeholder="이름 입력"
-					name="admin-name" id="admin-name"> 
-					
+					name="admin-name" id="admin-name">
+
 				<button>관리자가입</button>
 			</form>
 
 
 		</div>
 	</div>
-
 
 
 	<div class="category">

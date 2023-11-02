@@ -11,7 +11,6 @@ public class Admin {
 
 	public Admin() {
 	}
-
 	public Admin(String name, String adminId, String adminPw) {
 		this.name = name;
 		this.adminId = adminId;
