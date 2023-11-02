@@ -19,7 +19,7 @@
 }
 
 #consentModal .consent-modal-window {
-	background: #ebebd978;
+	background: #ebebd9;
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	backdrop-filter: blur(13.5px);
 	-webkit-backdrop-filter: blur(13.5px);
@@ -35,7 +35,7 @@
 }
 
 #consentModal .title {
-	padding-left: 100px;
+	padding-left: 64px;
 	display: inline;
 	text-shadow: 1px 1px 2px gray;
 	color: black;
@@ -65,7 +65,6 @@
 
 #nextModalbtn {
 	left: 51%;
-
 }
 
 #closeModalbtn {
@@ -91,6 +90,22 @@
 #consentbox {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+#consentbox .privacy {
+	padding-right: 48px
+}
+
+#consentbox .terms {
+	padding-right: 140px;
+}
+
+#consentbox .allCheck {
+	padding-left: 8px;
+	position: relative;
+	top: 5px;
 }
 
 .essential {
@@ -99,15 +114,15 @@
 	padding-bottom: 20px;
 	width: 15%;
 	height: 4%;
-	left: 43%;
-	top: 23%;
+	left: 47%;
+	top: 155px;
 	color: red;
 }
 
 .essentials {
 	position: absolute;
 	padding-top: 3px;
-	left: 73%;
-	top: 57%;
+	left: 78%;
+	top: 328px;
 	color: red;
 }

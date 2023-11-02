@@ -27,7 +27,7 @@
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	width: 300px;
 	height: 355px;
-	min-height: 56%;
+	min-height: 61%;
 	position: absolute;
 	padding: 10px;
 	left: 40%;
@@ -35,7 +35,7 @@
 }
 
 #joinModal .title {
-	padding-left: 100px;
+	padding-left: 66px;
 	display: inline;
 	text-shadow: 1px 1px 2px gray;
 	color: black;
@@ -58,16 +58,19 @@
 	border-block-color: revert-layer;
 	box-shadow: none;
 	padding: 12px 16px;
-	width: 88%;
+	width: 100%;
 	line-height: 1.2;
 }
 
 .join-content {
-	padding-top: 110px;
+	position: relative;
+	top: 113px;
 }
 
 .input-name {
-	padding-top: 28px;
+	position:absolute;
+	top:75%;
+	width: 93%;
 	font-weight: normal;
 	font-size: 14px;
 	color: #212121;
@@ -80,7 +83,7 @@
 	position: absolute;
 	left: 3%;
 	width: 94%;
-	top: 87%;
+	top: 90%;
 	cursor: pointer;
 }
 
@@ -96,8 +99,8 @@
 	align-items: center;
 	justify-content: center;
 	position: absolute;
-	top: 9%;
-	left: 39%;
+	top: 10%;
+	left: 37%;
 }
 
 img {

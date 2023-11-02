@@ -179,6 +179,7 @@
 				<h2>회원가입</h2>
 			</div>
 			<div class="join-close-area">X</div>
+
 			<div class="join-content">
 				<input type="text" id="userId" name="userId" placeholder="아이디"> <input
 					type="password" id="userPw" name="userPw" placeholder="비밀번호"> <input
@@ -194,6 +195,7 @@
 				</div>
 			</div>
 			<button type="submit" id="joinBtn">가입하기</button>
+
 		</div>
 	</div>
 
