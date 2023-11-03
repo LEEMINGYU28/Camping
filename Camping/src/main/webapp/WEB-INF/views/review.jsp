@@ -48,6 +48,11 @@
 		<div class="reviewNotice">
 			<h1>이용후기</h1>
 		</div>
+		
+		<div class="reviewTextContainer">
+			이용후기 내용
+		</div>
+		
 	</div>
 
 	<footer>

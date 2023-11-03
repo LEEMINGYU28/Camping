@@ -40,12 +40,20 @@
 						class="gallery-image">
 				</c:forEach>
 			</div>
+			<div class="image-list2">
+				<c:forEach var="image" items="${imageList}">
+					<img src="<c:out value="${image}" />" alt="Camp Image"
+						class="gallery-image">
+				</c:forEach>
+			</div>
+			
 		</div>
 		<div class="mainAnnouncement">
 			<div>
 				<p>
 					<span>공지사항</span>
 				</p>
+				<div class="mainAnnouncementContainer">공지사항 내용</div>
 			</div>
 		</div>
 	</div>

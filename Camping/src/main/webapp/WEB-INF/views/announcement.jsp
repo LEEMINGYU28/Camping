@@ -49,6 +49,10 @@
 		<div class="announcementNotice">
 			<h1>공지사항</h1>
 		</div>
+		<div class="anouncementTextContainer">
+			공지사항 내용
+		</div>
+		
 	</div>
 
 	<footer>
