@@ -41,20 +41,20 @@ public class UserController {
 		return "redirect:/main";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/logins", method = RequestMethod.POST)
 	public String userLogInPost(@RequestParam Map<String, String> map, HttpSession session) {
 		User user = new User();
 		user.setUserId(map.get("userId"));
 		user.setUserPw(map.get("userPw"));
 
-		user = userService.login(user);
+		user = userService.logins(user);
 		if (user != null)
 			session.setAttribute("userName", user.getName());
 
 		return "redirect:/main";
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	@RequestMapping(value = "/logouts", method = RequestMethod.POST)
 	public String userLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 		session.setAttribute("userName", null);
 

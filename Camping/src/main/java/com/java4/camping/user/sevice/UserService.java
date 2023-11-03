@@ -19,7 +19,7 @@ public class UserService {
 		System.out.println(user);
 	}
 
-	public User login(User user) {
+	public User logins(User user) {
 		User tempUser = userDAO.get(user.getUserId());
 		if (tempUser != null && tempUser.getUserPw().equals(cryptoPassword(user.getUserPw()))) {
 			return tempUser;
