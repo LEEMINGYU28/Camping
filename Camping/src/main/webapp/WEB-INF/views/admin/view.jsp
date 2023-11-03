@@ -10,7 +10,7 @@
 	<h1>공지사항 상세 정보</h1>
 	<c:if test="${notice != null}">
 		<p>
-			<strong>글쓴이:</strong> ${adminName}
+			<strong>글쓴이:</strong> ${notice.admin.name}
 		</p>
 		<p>
 			<strong>제목:</strong> ${notice.title}
@@ -22,7 +22,7 @@
 	<a href="edit/${notice.id}">수정</a>
 	<a href="delete/${notice.id}">삭제</a>
 
-	<a href="">돌아가기</a>
+	<a href="/camping/admin">돌아가기</a>
 </body>
 </html>
 

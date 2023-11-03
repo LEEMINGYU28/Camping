@@ -36,29 +36,29 @@ public class UserController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPost(@RequestParam Map<String, String> map) {
-		userService.add(new User(map.get("joinName"), map.get("joinId"), map.get("joinPw")));
+		userService.add(new User(map.get("userName"), map.get("userId"), map.get("userPw")));
 
 		return "redirect:/main";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/logins", method = RequestMethod.POST)
 	public String userLogInPost(@RequestParam Map<String, String> map, HttpSession session) {
 		User user = new User();
 		user.setUserId(map.get("userId"));
 		user.setUserPw(map.get("userPw"));
-
 		user = userService.login(user);
 		if (user != null)
 			session.setAttribute("userName", user.getName());
-
+		System.out.println("로그인성공");
 		return "redirect:/main";
+		
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String userLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
+	@RequestMapping(value = "/logouts", method = RequestMethod.POST)
+	public String adminLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 		session.setAttribute("userName", null);
 
-		return "redirect:/header";
+		return "redirect:/main";
 	}
 
 }

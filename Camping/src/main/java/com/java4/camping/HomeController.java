@@ -32,7 +32,7 @@ public class HomeController {
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String admin() {
 
-		return "admin";
+		return "admin/admin";
 	}
 
 	@RequestMapping(value = "/main", method = RequestMethod.GET)

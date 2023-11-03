@@ -18,8 +18,15 @@ public class NoticeService {
     private AdminDAO adminDAO;
     
     public List<Notice> getAllNotices() {
-        return noticeDAO.getAll();
+        List<Notice> notices = noticeDAO.getAll();
+        for (Notice notice : notices) {
+            int adminId = notice.getAdminid();
+            Admin admin = adminDAO.get(adminId);
+            notice.setAdmin(admin);
+        }
+        return notices;
     }
+
 	public Notice get(int id) {
 		Notice notice = noticeDAO.get(id);
 		Admin admin = adminDAO.get(notice.getAdminid());

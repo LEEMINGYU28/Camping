@@ -33,11 +33,11 @@ public class NoticeController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String viewNotice(Model model, @PathVariable("id") int id) {
-
-		Notice notice = noticeService.getNoticeById(id);
-		model.addAttribute("notice", notice);
-		return "admin/view";
+	    Notice notice = noticeService.get(id);
+	    model.addAttribute("notice", notice); 
+	    return "admin/view";
 	}
+
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateForm() {
@@ -47,9 +47,9 @@ public class NoticeController {
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String createNotice(@RequestParam Map<String, String> map, HttpSession session) {
 
-		String adminName = (String) session.getAttribute("adminName");
-
-		if (adminName == null) {
+		String adminId = (String) session.getAttribute("adminId");
+		
+		if (adminId == null) {
 
 			return "redirect:/admin";
 		}
@@ -57,9 +57,9 @@ public class NoticeController {
 		String title = map.get("title");
 		String content = map.get("content");
 
-		Admin admin = adminDAO.get(adminName);
+		Admin admin = adminDAO.get(adminId);
 
-		if (adminName != null) {
+		if (admin != null) {
 
 			Notice notice = new Notice(admin, title, content);
 
