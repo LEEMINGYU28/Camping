@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.java4.camping.admin.dao.AdminDAO;
 import com.java4.camping.admin.domain.Admin;
-import com.java4.camping.admin.service.AdminService;
 import com.java4.camping.notice.dao.NoticeDAO;
 import com.java4.camping.notice.domain.Notice;
 
@@ -28,9 +27,9 @@ public class NoticeService {
 
 		return notice;
 	}
-//    public Notice getNoticeById(int id) {
-//        return noticeDAO.get(id);
-//    }
+    public Notice getNoticeById(int id) {
+        return noticeDAO.get(id);
+    }
 
     public void addNotice(Notice notice, int adminId) {
         noticeDAO.add(notice);

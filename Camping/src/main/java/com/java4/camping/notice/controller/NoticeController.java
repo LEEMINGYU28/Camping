@@ -7,13 +7,13 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java4.camping.admin.dao.AdminDAO;
 import com.java4.camping.admin.domain.Admin;
-import com.java4.camping.admin.service.AdminService;
 import com.java4.camping.notice.domain.Notice;
 import com.java4.camping.notice.service.NoticeService;
 
@@ -23,8 +23,6 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	@Autowired
-	private AdminService adminService;
-	@Autowired
 	private AdminDAO adminDAO;
 
 	@RequestMapping(method = RequestMethod.GET)
@@ -33,12 +31,13 @@ public class NoticeController {
 		return "admin/list";
 	}
 
-//	@RequestMapping(value = "/view", method = RequestMethod.POST)
-//	public String viewNotice(Model model, int id) {
-//		Notice notice = noticeService.getNoticeById(id);
-//		model.addAttribute("notice", notice);
-//		return "admin/view";
-//	}
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public String viewNotice(Model model, @PathVariable("id") int id) {
+
+		Notice notice = noticeService.getNoticeById(id);
+		model.addAttribute("notice", notice);
+		return "admin/view";
+	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateForm() {
@@ -64,40 +63,40 @@ public class NoticeController {
 
 			Notice notice = new Notice(admin, title, content);
 
-			noticeService.addNotice(notice,notice.getAdminid());
+			noticeService.addNotice(notice, notice.getAdminid());
 		}
 
 		return "redirect:/notices";
 	}
 
-//	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-//	public String showEditForm(Model model, @RequestParam("id") int id) {
-//		Notice notice = noticeService.getNoticeById(id);
-//		model.addAttribute("notice", notice);
-//		return "admin/edit";
-//	}
-//
-//	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-//	public String editNotice(@RequestParam("id") int id, @RequestParam("title") String title,
-//			@RequestParam("content") String content) {
-//		Notice notice = new Notice();
-//		notice.setId(id);
-//		notice.setTitle(title);
-//		notice.setContent(content);
-//		noticeService.updateNotice(notice);
-//		return "redirect:/notices";
-//	}
-//
-//	@RequestMapping(value = "/delete", method = RequestMethod.GET)
-//	public String showDeleteForm(Model model, @RequestParam("id") int id) {
-//		Notice notice = noticeService.getNoticeById(id);
-//		model.addAttribute("notice", notice);
-//		return "notices/delete";
-//	}
-//
-//	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-//	public String deleteNotice(@RequestParam("id") int id) {
-//		noticeService.deleteNotice(id);
-//		return "redirect:/notices";
-//	}
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public String showEditForm(Model model, @PathVariable("id") int id) {
+		Notice notice = noticeService.getNoticeById(id);
+		model.addAttribute("notice", notice);
+		return "admin/edit";
+	}
+
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+	public String editNotice(@PathVariable("id") int id, @RequestParam("title") String title,
+			@RequestParam("content") String content) {
+		Notice notice = new Notice();
+		notice.setId(id);
+		notice.setTitle(title);
+		notice.setContent(content);
+		noticeService.updateNotice(notice);
+		return "redirect:/notices";
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String showDeleteForm(Model model, @PathVariable("id") int id) {
+		Notice notice = noticeService.getNoticeById(id);
+		model.addAttribute("notice", notice);
+		return "admin/delete";
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+	public String deleteNotice(@PathVariable("id") int id) {
+		noticeService.deleteNotice(id);
+		return "redirect:/notices";
+	}
 }

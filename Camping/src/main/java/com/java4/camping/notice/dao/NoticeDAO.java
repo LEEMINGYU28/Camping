@@ -21,9 +21,6 @@ public class NoticeDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	@Autowired
-	private AdminDAO adminDAO;
-
 	public void setDataSource(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}

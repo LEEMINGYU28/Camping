@@ -38,9 +38,8 @@ public class AdminController {
 		admin = adminService.login(admin);
 		if (admin != null)
 			session.setAttribute("adminName", admin.getName());
-		session.setAttribute("adminId", admin.getAdminId());
+			session.setAttribute("adminId", admin.getAdminId());
 		return "redirect:/admin";
-		
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)

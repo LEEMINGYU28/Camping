@@ -59,7 +59,7 @@ a:not([href]):not([tabindex]) {
 							</c:when>
 							<c:otherwise>
 
-								<li class="login-modal"><a class="btn" id="btn-modal">Login</a></li>
+								<li class="login-modal"><a class="btn" id="btn-modal" style="cursor: pointer;">Login</a></li>
 							</c:otherwise>
 						</c:choose>
 

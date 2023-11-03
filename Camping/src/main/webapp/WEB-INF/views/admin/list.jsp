@@ -10,19 +10,19 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>글쓴이</th>
                 <th>제목</th>
             </tr>
         </thead>
         <tbody>
             <c:forEach items="${notices}" var="notice">
                 <tr>
-                    <td>${notice.id}</td>
+                    <td>${adminName}</td>
                     <td><a href="notices/${notice.id}">${notice.title}</a></td>
                 </tr>
             </c:forEach>
         </tbody>
     </table>
-    <a href="notices/create">새로운 공지사항 작성</a>
+    <a href="notices/create">글쓰기</a>
 </body>
 </html>
