@@ -17,7 +17,7 @@
         <tbody>
             <c:forEach items="${notices}" var="notice">
                 <tr>
-                    <td>${adminName}</td>
+                    <td>${notice.admin.name}</td>
                     <td><a href="notices/${notice.id}">${notice.title}</a></td>
                 </tr>
             </c:forEach>

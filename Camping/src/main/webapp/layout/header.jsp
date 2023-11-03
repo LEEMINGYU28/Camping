@@ -38,10 +38,32 @@
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-
 		<div class="collapse navbar-collapse" id="navbarsExample03">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a id="btn-modal" class="nav-link" style="cursor: pointer;">LOGIN</a></li>
+				<c:choose>
+					<c:when test="${userName == null }">
+
+						<li class="nav-item"><a id="btn-modal" class="nav-link"
+							style="cursor: pointer;">LOGIN</a></li>
+					</c:when>
+					<c:when test="${userName != null }">
+
+						<li><a class="nav-link"> ${userName } 님 반갑습니다.</a></li>
+
+						<form action="/camping/logouts" method="post">
+							<input type="hidden" name="_method" value="post"> <a
+								class="nav-link" type="button" style="cursor: pointer;"
+								onclick="submitForm();">LOGOUT</a>
+						</form>
+
+						<script>
+							function submitForm() {
+								document.forms[0].submit(); 
+							}
+						</script>
+
+					</c:when>
+				</c:choose>
 				<li class="nav-item separator"></li>
 				<li class="nav-item"><a class="nav-link" href="./mypage">MYPAGE</a></li>
 				<li class="nav-item"><a class="nav-link" href="./main">HOME</a></li>
@@ -79,9 +101,11 @@
 			</div>
 			<div class="close-area">X</div>
 			<div class="content">
-				<input type="text" id="userId" name="userPw" placeholder="아이디">
-				<input type="password" id="userPw" name="userPw" placeholder="비밀번호">
-				<button id="login-button">로그인</button>
+				<form action="/camping/logins" method="post">
+					<input type="text" id="userId" name="userId" placeholder="아이디">
+					<input type="password" id="userPw" name="userPw" placeholder="비밀번호">
+					<button id="login-button" type="submit">로그인</button>
+				</form>
 				<a class="join" type="button" id="signup-button"
 					style="cursor: pointer; color: #000000b5;">회원가입</a>
 			</div>
@@ -243,13 +267,13 @@
 				<div class="input-name">
 					<label>이름</label>
 					<div class="input-form-name">
-						<input title="이름을(를) 입력하세요" type="text" id="joinName" name="joinName"
-							placeholder="이름을(를) 입력하세요">
+						<input title="이름을(를) 입력하세요" type="text" id="userName"
+							name="userName" placeholder="이름을(를) 입력하세요">
 					</div>
 				</div>
 				<div class="join-content">
-					<input type="text" id="joinId" name="joinId" placeholder="아이디">
-					<input type="password" id="joinPw" name="joinPw" placeholder="비밀번호">
+					<input type="text" id="userId" name="userId" placeholder="아이디">
+					<input type="password" id="userPw" name="userPw" placeholder="비밀번호">
 					<input type="password" id="passwordCheck" placeholder="비밀번호 확인">
 					<span id="passwordMessage" style="color: red;"></span> <span
 						id="passwordCheckMessage" style="color: red;"></span>
