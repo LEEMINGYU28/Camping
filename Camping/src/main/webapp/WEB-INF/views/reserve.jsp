@@ -40,6 +40,12 @@
 		<div class="reserveNotice">
 			<h1>실시간예약</h1>
 		</div>
+		
+		<div>
+		<jsp:include page='../../layout/calendar.jsp'>
+			<jsp:param name="pageName" value="calendar" />
+		</jsp:include>
+		</div>
 	</div>
 
 	<footer>
