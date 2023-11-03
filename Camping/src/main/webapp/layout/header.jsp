@@ -41,8 +41,7 @@
 
 		<div class="collapse navbar-collapse" id="navbarsExample03">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a id="btn-modal" class="nav-link"
-					>LOGIN</a></li>
+				<li class="nav-item"><a id="btn-modal" class="nav-link" style="cursor: pointer;">LOGIN</a></li>
 				<li class="nav-item separator"></li>
 				<li class="nav-item"><a class="nav-link" href="#">MYPAGE</a></li>
 				<li class="nav-item"><a class="nav-link" href="./main">HOME</a></li>
@@ -231,25 +230,25 @@
 				<img src="resources/img/profile.png" alt="">
 			</div>
 			<div class="title">
-					<h2>회원가입</h2>
+				<h2>회원가입</h2>
 			</div>
 			<div class="join-close-area">X</div>
-			<form action="/camping/main" method="POST">
-			<div class="join-content">
-				<input type="text" id="userId" name="userId" placeholder="아이디">
-				<input type="password" id="userPw" name="userPw" placeholder="비밀번호">
-				<input type="password" id="passwordCheck" placeholder="비밀번호 확인">
-				<span id="passwordMessage" style="color: red;"></span> <span
-					id="passwordCheckMessage" style="color: red;"></span>
-			</div>
-			<div class="input-name">
-				<label>이름</label>
-				<div class="input-form-name">
-					<input title="이름을(를) 입력하세요" type="text" id="name" name="name"
-						placeholder="이름을(를) 입력하세요">
+			<form action="/camping/register" method="post">
+				<div class="input-name">
+					<label>이름</label>
+					<div class="input-form-name">
+						<input title="이름을(를) 입력하세요" type="text" id="joinName" name="joinName"
+							placeholder="이름을(를) 입력하세요">
+					</div>
 				</div>
-			</div>
-			<button type="submit" id="joinBtn">가입하기</button>
+				<div class="join-content">
+					<input type="text" id="joinId" name="joinId" placeholder="아이디">
+					<input type="password" id="joinPw" name="joinPw" placeholder="비밀번호">
+					<input type="password" id="passwordCheck" placeholder="비밀번호 확인">
+					<span id="passwordMessage" style="color: red;"></span> <span
+						id="passwordCheckMessage" style="color: red;"></span>
+				</div>
+				<button type="submit" id="joinBtn">가입하기</button>
 			</form>
 		</div>
 	</div>

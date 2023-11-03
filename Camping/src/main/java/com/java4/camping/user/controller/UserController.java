@@ -18,14 +18,25 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/header", method = RequestMethod.GET)
-	public String regist() {
-		return "camping/main";
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	public String register() {
+		return "main/main";
 	}
 
-	@RequestMapping(value = "/header", method = RequestMethod.POST)
-	public String registPost(@RequestParam Map<String, String> map) {
-		userService.add(new User(map.get("name"), map.get("userId"), map.get("userPw")));
+	/*
+	 * @RequestMapping(value = "/camping/main", method = RequestMethod.POST) public
+	 * String handleHeaderPostRequest(@RequestParam Map<String, String> map,
+	 * HttpSession session) { String name = map.get("joinName"); String userId =
+	 * map.get("joinId"); String userPw = map.get("joinPw");
+	 * 
+	 * User user = new User(name, userId, userPw); userService.add(user);
+	 * 
+	 * return "redirect:/main"; }
+	 */
+
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public String registerPost(@RequestParam Map<String, String> map) {
+		userService.add(new User(map.get("joinName"), map.get("joinId"), map.get("joinPw")));
 
 		return "redirect:/main";
 	}
@@ -35,6 +46,7 @@ public class UserController {
 		User user = new User();
 		user.setUserId(map.get("userId"));
 		user.setUserPw(map.get("userPw"));
+
 		user = userService.login(user);
 		if (user != null)
 			session.setAttribute("userName", user.getName());
