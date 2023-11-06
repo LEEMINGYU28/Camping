@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="./resources/styles/realTimeReserve.css" rel="stylesheet" />
-<script>
-  function redirectToReservePage() {
-    window.location.href = './reserve'; // reserve 페이지의 URL로 변경해야 합니다.
-  }
-</script>
+ <link href="./resources/styles/realTimeReserve.css" rel="stylesheet" />
+  <script>
+    function redirectToReservePage() {
+      window.location.href = './reserve#reserveNotice'; 
+    }
+  </script>
 </head>
 <body>
-	<div>
-		<button onclick="redirectToReservePage()">실시간 예약하기</button>
-	</div>
+  <div>
+    <button onclick="redirectToReservePage()">실시간 예약하기</button>
+  </div>
 </body>
 </html>

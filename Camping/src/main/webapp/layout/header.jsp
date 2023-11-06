@@ -38,7 +38,7 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item"><a class="nav-link" href="#">LOGIN</a></li>
 				<li class="nav-item separator"></li>
-				<li class="nav-item"><a class="nav-link" href="#">MYPAGE</a></li>
+				<li class="nav-item"><a class="nav-link" href="./mypage">MYPAGE</a></li>
 				<li class="nav-item"><a class="nav-link" href="./main">HOME</a></li>
 				<li class="nav-item dropdown" onmouseover="showDropdown()"
 					onmouseout="hideDropdown()"><a class="nav-link"
@@ -51,11 +51,12 @@
 					</div></li>
 				<li class="nav-item"><a class="nav-link" href="./fee">이용요금</a></li>
 				<li class="nav-item"><a class="nav-link" href="./reserve">캠핑장예약</a></li>
-				
-				<li class="nav-item right-aligned"><jsp:include
-						page='realTimeReserve.jsp'>
+
+				<li class="realTimeReserveBtn">
+					<jsp:include page='realTimeReserve.jsp'>
 						<jsp:param name="pageName" value="reserve" />
-					</jsp:include></li>
+					</jsp:include>
+				</li>
 			</ul>
 
 		</div>
