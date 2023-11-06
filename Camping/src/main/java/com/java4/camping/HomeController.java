@@ -12,27 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home() {
-
-		return "home";
-	}
-
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public String index() {
 
 		return "index";
 	}
 
-	@RequestMapping(value = "/admin", method = RequestMethod.GET)
+	@RequestMapping(value = "/notices", method = RequestMethod.GET)
 	public String admin() {
 
-		return "admin/notices";
+		return "admin/admin";
 	}
 
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
@@ -42,28 +31,28 @@ public class HomeController {
 
 	@RequestMapping(value = "/announcement", method = RequestMethod.GET)
 	public String announcement() {
-		return "announcement";
+		return "board/announcement";
 	}
 
 	@RequestMapping(value = "/review", method = RequestMethod.GET)
 	public String review() {
-		return "review";
+		return "board/review";
 	}
 
 	@RequestMapping(value = "/fee", method = RequestMethod.GET)
 	public String fee() {
-		return "fee";
+		return "category/fee";
 	}
 
 	@RequestMapping(value = "/reserve", method = RequestMethod.GET)
 	public String reserve() {
-		return "reserve";
+		return "payment/reserve";
 	}
 	
 
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public String calendar() {
-		return "calendar";
+		return "layout/calendar";
 	}
 
 }

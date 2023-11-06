@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
- <link href="./resources/styles/realTimeReserve.css" rel="stylesheet" />
+ <link href="./resources/styles/layout/realTimeReserve.css" rel="stylesheet" />
   <script>
     function redirectToReservePage() {
       window.location.href = './reserve#reserveNotice'; 

@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>이용후기</title>
-<link href="resources/styles/review.css" rel="stylesheet" />
+<link href="resources/styles/board/review.css" rel="stylesheet" />
 
 
 <script>
 	window.onload = function() {
 		let currentPage = window.location.href;
 
-		if (currentPageURL.indexOf("review") !== -1) {
+		if (currentPage.indexOf("../board/review") !== -1) {
 			document.getElementById("reviewBox").style.backgroundColor = "navy";
 			document.getElementById("reviewBox").style.color = "white";
 			document.getElementById("noticeBox").style.backgroundColor = "white";
@@ -27,7 +27,7 @@
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -56,7 +56,7 @@
 	</div>
 
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>

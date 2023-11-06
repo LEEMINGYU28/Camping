@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>예약</title>
-<link href="resources/styles/reserve.css" rel="stylesheet" />
+<link href="resources/styles/payment/reserve.css" rel="stylesheet" />
 
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -44,7 +44,7 @@
 		
 
 		<div>
-			<jsp:include page='../../layout/calendar.jsp'>
+			<jsp:include page='../layout/calendar.jsp'>
 				<jsp:param name="pageName" value="calendar" />
 			</jsp:include>
 		</div>
@@ -54,7 +54,7 @@
     </div>
 
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>
@@ -75,7 +75,7 @@
 		
 		
 		 function goToDeepReserve() {
-		        window.location.href = 'deepReserve'; // 실제 deepReserve.jsp 파일의 경로를 여기에 입력해주세요.
+		        window.location.href = 'deepReserve'; // 실제 deepReserve.jsp 파일의 경로
 		    }
 	</script>
 </body>

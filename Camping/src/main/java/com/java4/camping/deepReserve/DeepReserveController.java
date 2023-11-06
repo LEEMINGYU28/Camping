@@ -12,7 +12,7 @@ public class DeepReserveController {
 
 	public String deepReserve() {
 
-		return "/deepReserve";
+		return "/payment/deepReserve";
 	}
 
 }

@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>너의 아지트가 되어줄게</title>
-<link href="resources/styles/fee.css" rel="stylesheet" />
+<link href="resources/styles/category/fee.css" rel="stylesheet" />
 
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -19,7 +19,7 @@
 		<div class="feeImg"></div>
 	</div>
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>

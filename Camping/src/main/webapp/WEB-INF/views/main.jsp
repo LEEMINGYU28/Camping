@@ -11,7 +11,7 @@
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -24,7 +24,7 @@
 			<h2>어제 오늘 그리고... Camp</h2>
 			<div class="bannerSeparator"></div>
 			<div class="bannerSeparator"></div>
-			<jsp:include page='../../layout/realTimeReserve.jsp'>
+			<jsp:include page='layout/realTimeReserve.jsp'>
 				<jsp:param name="pageName" value="reserve" />
 			</jsp:include>
 		</div>
@@ -94,7 +94,7 @@
 		</div>
 	</div>
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>

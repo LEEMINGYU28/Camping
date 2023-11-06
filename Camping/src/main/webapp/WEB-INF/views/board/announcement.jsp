@@ -6,14 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link href="resources/styles/announcement.css" rel="stylesheet" />
-
+<link href="resources/styles/board/announcement.css" rel="stylesheet" />
 
 <script>
 	window.onload = function() {
-		let currentPage = window.location.href; // 현재 페이지 이름으로 설정
+		let currentPage = window.location.href; // 현재 페이지 URL로 설정
 
-		if (currentPageURL.indexOf("announcement") !== -1) {
+		if (currentPage.indexOf("./../board/announcement") !== -1) {
 			document.getElementById("noticeBox").style.backgroundColor = "navy";
 			document.getElementById("noticeBox").style.color = "white";
 			document.getElementById("reviewBox").style.backgroundColor = "white";
@@ -27,7 +26,7 @@
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -41,8 +40,8 @@
 		</div>
 
 		<div class="boxContainer">
-			<div class="box" id="noticeBox" onclick="goToPage('./announcement')">공지사항</div>
-			<div class="box" id="reviewBox" onclick="goToPage('./review')">이용후기</div>
+			<div class="box" id="noticeBox" onclick="goToPage('announcement')">공지사항</div>
+			<div class="box" id="reviewBox" onclick="goToPage('review')">이용후기</div>
 		</div>
 
 
@@ -56,7 +55,7 @@
 	</div>
 
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>

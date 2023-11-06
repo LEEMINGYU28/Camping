@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>마이페이지</title>
-<link href="resources/styles/myPage.css" rel="stylesheet" />
+<link href="resources/styles/category/myPage.css" rel="stylesheet" />
 
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -15,7 +15,7 @@
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -40,7 +40,7 @@
 			<p>예약번호: 202310274017693</p>
 			<p>예약일자: 2023-10-27</p>
 			<h3>예약 상품 이미지</h3>
-			<img src="resources/img/mypageBoxImg.jpg" alt="상품 이미지" class="product-image">
+			<img src="resources/img/categorys/mypageBoxImg.jpg" alt="상품 이미지" class="product-image">
 			<p>T2-테라스캠핑</p>
 			<p>1박 (2023-10-27 ~ 2023-10-28)</p>
 			<p>350,000원</p>
@@ -74,7 +74,7 @@
 
 
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>

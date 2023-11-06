@@ -5,13 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="./resources/styles/footer.css" rel="stylesheet"/> 
+<link href="./resources/styles/layout/footer.css" rel="stylesheet"/> 
 </head>
 <body>
 <footer class="camping-footer">
     <div class="container">
         <div class="footer-content">
-            <img src="./resources/img/campingLogo3.jpg" alt="Campfire Icon">
+            <img src="./resources/img/categorys/campingLogo3.jpg" alt="Campfire Icon">
             <p>Contact us: contact@campingsite.com</p>
             <ul>
                 <li><a href="/about">About us</a></li>

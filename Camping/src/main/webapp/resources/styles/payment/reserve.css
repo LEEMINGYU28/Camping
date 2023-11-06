@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
 .reserveImg {
-	background-image: url("../img/reserve.jpg");
+	background-image: url("../../img/payment/reserve.jpg");
 	width: 100%;
 	height: 35vh;
 	padding-left: 0;
 	padding-right: 0;
-	background-size: 100% 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .text_wrap {
@@ -54,7 +56,7 @@
 }
 
 .campImg {
-	background-image: url("../img/camp.jpg");
+	background-image: url("../../img/payment/camp.jpg");
 	width: 80%;
 	height: 70vh;
 	background-size: cover;

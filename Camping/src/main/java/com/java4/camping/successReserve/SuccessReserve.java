@@ -14,7 +14,7 @@ public class SuccessReserve {
 
 	public String successReserve() {
 
-		return "/successReserve";
+		return "/payment/successReserve";
 	}
 
 

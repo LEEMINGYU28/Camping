@@ -6,13 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>예약 완료</title>
-<link href="resources/styles/successReserve.css" rel="stylesheet" />
+<link href="resources/styles/payment/successReserve.css" rel="stylesheet" />
 
 </head>
 <body>
 
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -36,7 +36,7 @@
 			</div>
 			<div class="reservation-details">
 				<h2>예약신청 정보</h2>
-				<img src="resources/img/successReserve.jpg" alt="예약 상품 이미지">
+				<img src="resources/img/payment/successReserve.jpg" alt="예약 상품 이미지">
 				<table>
 					<tr>
 						<th>예약 기간</th>
@@ -54,7 +54,7 @@
 
 
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>

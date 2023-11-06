@@ -13,7 +13,7 @@
 		<div class="wrap">
 			<div class="payment_wrap">
 				<header>
-					<jsp:include page='/layout/header.jsp'>
+					<jsp:include page='../layout/header.jsp'>
 						<jsp:param name="pageName" value="header" />
 					</jsp:include>
 				</header>
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		<footer>
-			<jsp:include page='/layout/footer.jsp'>
+			<jsp:include page='../layout/footer.jsp'>
 				<jsp:param name="pageName" value="footer" />
 			</jsp:include>
 		</footer>

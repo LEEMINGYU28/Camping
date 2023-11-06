@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link href="resources/styles/calendar.css" rel="stylesheet" />
+<link href="resources/styles/layout/calendar.css" rel="stylesheet" />
 </head>
 <body>
 	<div>

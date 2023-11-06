@@ -12,7 +12,7 @@ public class MyPageController {
 
 	public String myPage() {
 
-		return "/myPage";
+		return "category/myPage";
 	}
 
 

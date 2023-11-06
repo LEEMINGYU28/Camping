@@ -7,9 +7,10 @@
 }
 
 .feeImg {
-	background-image: url("../img/fee.jpg");
+	background-image: url("../../img/categorys/fee.jpg");
 	width: 100%;
 	height: 70vh;
 	background-size: 100% 100%;
-	margin-top : 90px;
+	margin-top : 100px;
+	margin-bottom : 44px;
 }

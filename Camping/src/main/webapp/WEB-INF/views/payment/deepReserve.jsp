@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8">
 <title>예약</title>
-<link href="resources/styles/deepReserve.css" rel="stylesheet" />
+<link href="resources/styles/payment/deepReserve.css" rel="stylesheet" />
 
 </head>
 <body>
 	<header>
-		<jsp:include page='../../layout/header.jsp'>
+		<jsp:include page='../layout/header.jsp'>
 			<jsp:param name="pageName" value="header" />
 		</jsp:include>
 	</header>
@@ -26,7 +26,7 @@
 
 
 			<div class="calendarContainer">
-				<jsp:include page='../../layout/calendar.jsp'>
+				<jsp:include page='../layout/calendar.jsp'>
 					<jsp:param name="pageName" value="calendar" />
 				</jsp:include>
 				<div class="price">
@@ -45,7 +45,7 @@
 
 	</div>
 	<footer>
-		<jsp:include page='../../layout/footer.jsp'>
+		<jsp:include page='../layout/footer.jsp'>
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>
