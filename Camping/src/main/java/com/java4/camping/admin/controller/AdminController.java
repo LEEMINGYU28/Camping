@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.java4.camping.admin.domain.Admin;
 import com.java4.camping.admin.service.AdminService;
 
-@Controller
+// @Controller
 public class AdminController {
 	@Autowired
 	private AdminService adminService;

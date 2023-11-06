@@ -13,6 +13,12 @@ body {
 	right: 0; 
 }
 
+.navbar-dark .navbar-nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%; 
+    }
+
 .navbar-dark .navbar-nav .nav-link {
     color: #62615C;
 }
@@ -53,3 +59,8 @@ body {
 .navbar-dark .right-aligned {
     padding-left:0;
 }
+
+.navbar-dark .navbar-nav .realTimeReserveBtn{
+	margin-left : auto;
+}
+

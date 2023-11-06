@@ -27,7 +27,7 @@
 			<h1>캠핑장 배치도</h1>
 			<div class="campImg"></div>
 		</div>
-		
+
 		<div class="campExamContainer">
 			<div class="campExam">
 				<p>캠핑장 배치도 보는법</p>
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 
-		<div class="reserveNotice">
+		<div id="reserveNotice">
 			<h1>실시간예약</h1>
 		</div>
 		
@@ -45,8 +45,18 @@
 		<jsp:include page='../../layout/calendar.jsp'>
 			<jsp:param name="pageName" value="calendar" />
 		</jsp:include>
+
+		
+
+		<div>
+			<jsp:include page='../../layout/calendar.jsp'>
+				<jsp:param name="pageName" value="calendar" />
+			</jsp:include>
 		</div>
 	</div>
+	<div>
+        <button onclick="goToDeepReserve()">심층 예약으로 이동</button>
+    </div>
 
 	<footer>
 		<jsp:include page='../../layout/footer.jsp'>
@@ -54,5 +64,26 @@
 		</jsp:include>
 	</footer>
 
+
+	<script>
+		window.onload = function() {
+			var urlParams = new URLSearchParams(window.location.search);
+			var scrollToReserve = urlParams.get('scrollToReserve');
+
+			if (scrollToReserve === 'true') {
+				var reserveNotice = document.getElementById('reserveNotice');
+				if (reserveNotice) {
+					reserveNotice.scrollIntoView();
+				}
+			}
+		};
+		
+		
+		 function goToDeepReserve() {
+		        window.location.href = 'deepReserve'; // 실제 deepReserve.jsp 파일의 경로를 여기에 입력해주세요.
+		    }
+	</script>
 </body>
+
+
 </html>

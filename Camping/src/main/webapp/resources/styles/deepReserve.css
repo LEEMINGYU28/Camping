@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.deepContainer {
+	display: flex;
+	align-items: center;
+	
+}
+
+.deepImg {
+	background-image: url("../img/deepReserve.jpg");
+	width: 100%;
+	height: 70vh;
+	background-size: 100% 100%;
+	margin-top: 90px;
+}
+
+.deepImgContainer {
+	flex: 1;
+ 	margin-left: 50px;
+	margin-right: 50px; 
+	
+	
+}
+
+.calendarContainer {
+	width: 100%;
+	flex: 1;
+ 	margin-left: 10px;
+	margin-right: 10px; 
+	
+}
+
+.price{
+	width: 100%;
+	height: 100px;
+	background-color: gray;
+	border: 1px solid black;
+}
+
+.detail {
+	margin-top:10px;
+	width: 100%;
+	height: 200px;
+	background-color: #f5d682;
+	border: 1px solid black;
+}

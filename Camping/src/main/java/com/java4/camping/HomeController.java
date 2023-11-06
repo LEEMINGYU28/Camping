@@ -59,9 +59,9 @@ public class HomeController {
 	public String reserve() {
 		return "reserve";
 	}
-	
-	/*
-	 * @RequestMapping(value = "/calendar", method = RequestMethod.GET) public
-	 * String calendar() { return "calendar"; }
-	 */
+
+	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
+	public String calendar() {
+		return "calendar";
+	}
 }
