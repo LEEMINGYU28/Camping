@@ -1,7 +1,5 @@
 package com.java4.camping;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,7 +46,6 @@ public class HomeController {
 	public String reserve() {
 		return "payment/reserve";
 	}
-	
 
 	@RequestMapping(value = "/calendar", method = RequestMethod.GET)
 	public String calendar() {

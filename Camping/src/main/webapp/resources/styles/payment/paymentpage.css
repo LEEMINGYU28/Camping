@@ -126,11 +126,10 @@ img {
 }
 
 .payment_method {
-	width: 500px;
-	height: 500px;
-	position: relative;
-	left: -500px;
-	top: -130px;
+	position: fixed;
+	top: 16%;
+	right: 27%;
+	transition: top 0.3s ease;
 }
 
 .payment_info {
@@ -162,4 +161,11 @@ img {
 	background-color: white;
 	position: relative;
 	top: 40px;
+}
+
+.payment_method_wrap {
+	width: 28%;
+	height: 61%;
+	right: 25%;
+	position: absolute;
 }
