@@ -25,10 +25,10 @@ public class NoticeController {
 	@Autowired
 	private AdminDAO adminDAO;
 
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/notices ",method = RequestMethod.GET)
 	public String listNotices(Model model) {
 		model.addAttribute("notices", noticeService.getAllNotices());
-		return "admin/list";
+		return "admin/admin";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
