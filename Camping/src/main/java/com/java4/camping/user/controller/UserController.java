@@ -55,7 +55,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/logouts", method = RequestMethod.POST)
-	public String adminLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
+	public String userLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 		session.setAttribute("userName", null);
 
 		return "redirect:/main";

@@ -51,7 +51,7 @@ public class NoticeController {
 		
 		if (adminId == null) {
 
-			return "redirect:/admin";
+			return "redirect:/notices";
 		}
 
 		String title = map.get("title");
@@ -78,13 +78,20 @@ public class NoticeController {
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
 	public String editNotice(@PathVariable("id") int id, @RequestParam("title") String title,
-			@RequestParam("content") String content) {
-		Notice notice = new Notice();
+			@RequestParam("content") String content,HttpSession session) {
+		String adminId = (String) session.getAttribute("adminId");
+		if (adminId == null) {
+
+			return "redirect:/notices";
+		}
+		else {	Notice notice = new Notice();
 		notice.setId(id);
 		notice.setTitle(title);
 		notice.setContent(content);
 		noticeService.updateNotice(notice);
 		return "redirect:/notices";
+		}
+	
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -95,8 +102,15 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	public String deleteNotice(@PathVariable("id") int id) {
-		noticeService.deleteNotice(id);
-		return "redirect:/notices";
+	public String deleteNotice(@PathVariable("id") int id,HttpSession session) {
+		String adminId = (String) session.getAttribute("adminId");
+		if (adminId == null) {
+
+			return "redirect:/notices";
+		}
+		else {
+			noticeService.deleteNotice(id);
+			return "redirect:/notices";
+		}
 	}
 }
