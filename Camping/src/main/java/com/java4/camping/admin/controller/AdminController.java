@@ -24,7 +24,7 @@ public class AdminController {
 	public String registPost(@RequestParam Map<String, String> map) {
 		adminService.add(new Admin(map.get("admin-name"), map.get("admin-id"), map.get("admin-pw")));
 
-		return "redirect:/admin";
+		return "redirect:/notices";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -36,7 +36,7 @@ public class AdminController {
 	    if (admin != null) {
 	        session.setAttribute("adminName", admin.getName());
 	        session.setAttribute("adminId", admin.getAdminId());
-	        return "redirect:/admin";
+	        return "redirect:/notices";
 	    } else {
 	  
 	        model.addAttribute("loginError", "Invalid username or password");
@@ -49,7 +49,7 @@ public class AdminController {
 	public String adminLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 		session.setAttribute("adminName", null);
 
-		return "redirect:/admin";
+		return "redirect:/notices";
 	}
 
 }
