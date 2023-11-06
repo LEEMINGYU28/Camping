@@ -1,15 +1,14 @@
-var payment = document.querySelector('.payment_info');
-var isSticky = false;
-
 window.addEventListener('scroll', function() {
-	var topOffset = payment.getBoundingClientRect().top;
+    var paymentMethod = document.querySelector('.payment_method');
+    
+    if (paymentMethod) {
+        var scrollY = window.scrollY || window.pageYOffset;
+        var paymentMethodTop = paymentMethod.getBoundingClientRect().top;
 
-	if (topOffset < 0 && !isSticky) {
-		payment.style.position = 'fixed';
-		payment.style.top = '0';
-		isSticky = true;
-	} else if (topOffset >= 0 && isSticky) {
-		payment.style.position = 'static';
-		isSticky = false;
-	}
+        if (scrollY > paymentMethodTop) {
+            paymentMethod.style.top = scrollY - paymentMethodTop + 'px';
+        } else {
+            paymentMethod.style.top = 0%;
+        }
+    }
 });

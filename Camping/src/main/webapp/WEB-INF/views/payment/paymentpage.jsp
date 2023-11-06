@@ -59,21 +59,23 @@
 					<input type="checkbox" class="agree">동의합니다.
 				</div>
 			</div>
-			<div class="payment_method">
-				<div class="payment_info">
-					<h6>최종 결제금액</h6>
-					<div class="info_text1" style="font-size: 14px;">상품가격</div>
-					<hr />
-					<div class="info_text2" style="font-size: 14px;">총 결제금액</div>
-				</div>
-				<div class="payment">
-					<h6>결제수단</h6>
-					<input type="checkbox">무통장입금 <input class="pay_order_name"
-						type="text" placeholder="입금자명">
-				</div>
-				<div class="payment_agree">
-					<input type="checkbox">구매조건 확인 및 결제진행에 동의
-					<button>결제하기</button>
+			<div class="payment_method_wrap">
+				<div class="payment_method">
+					<div class="payment_info">
+						<h6>최종 결제금액</h6>
+						<div class="info_text1" style="font-size: 14px;">상품가격</div>
+						<hr />
+						<div class="info_text2" style="font-size: 14px;">총 결제금액</div>
+					</div>
+					<div class="payment">
+						<h6>결제수단</h6>
+						<input type="checkbox">무통장입금 <input class="pay_order_name"
+							type="text" placeholder="입금자명">
+					</div>
+					<div class="payment_agree">
+						<input type="checkbox">구매조건 확인 및 결제진행에 동의
+						<button>결제하기</button>
+					</div>
 				</div>
 			</div>
 		</div>
