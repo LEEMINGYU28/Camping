@@ -19,7 +19,7 @@
 
 
 		<div class="successContainer">
-			<h1>예약 확인</h1>
+			<h1>예약 확인test</h1>
 			<div class="reservation-info">
 				<p>
 					<strong>입금계좌 안내:</strong> 농협 3553131939373
