@@ -35,7 +35,9 @@ a:not([href]):not([tabindex]) {
 </style>
 </head>
 <body>
-<% %>
+	<%
+		
+	%>
 	<div class="container">
 
 		<div class="title">
@@ -59,7 +61,8 @@ a:not([href]):not([tabindex]) {
 							</c:when>
 							<c:otherwise>
 
-								<li class="login-modal"><a class="btn" id="btn-modal" style="cursor: pointer;">Login</a></li>
+								<li class="login-modal"><a class="btn" id="btn-modal"
+									style="cursor: pointer;">Login</a></li>
 							</c:otherwise>
 						</c:choose>
 
@@ -74,15 +77,17 @@ a:not([href]):not([tabindex]) {
 										가입</a></li>
 							</c:otherwise>
 						</c:choose>
-
 					</ul>
-
-
 				</div>
 			</nav>
-
-			<div class="notice-list">
-				<jsp:include page="/WEB-INF/views/admin/list.jsp" />
+			<div class="category">
+				<div class="category-user">
+					<div class="notice-list">
+						<jsp:include page="/WEB-INF/views/admin/list.jsp" />
+					</div>
+				</div>
+				<div class="category-board">2</div>
+				<div class="category-image">3</div>
 			</div>
 
 		</div>
@@ -147,11 +152,7 @@ a:not([href]):not([tabindex]) {
 	</div>
 
 
-	<div class="category">
-		<div class="category-user">1</div>
-		<div class="category-board">2</div>
-		<div class="category-image">3</div>
-	</div>
+
 
 
 	<script src=resources/js/modals.js></script>
