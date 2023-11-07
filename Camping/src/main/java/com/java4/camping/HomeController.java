@@ -32,11 +32,6 @@ public class HomeController {
 		return "board/announcement";
 	}
 
-	@RequestMapping(value = "/review", method = RequestMethod.GET)
-	public String review() {
-		return "board/review";
-	}
-
 	@RequestMapping(value = "/fee", method = RequestMethod.GET)
 	public String fee() {
 		return "category/fee";
@@ -52,4 +47,8 @@ public class HomeController {
 		return "layout/calendar";
 	}
 
+	@RequestMapping(value = "/review", method = RequestMethod.GET)
+	public String review() {
+		return "board/review";
+	}
 }

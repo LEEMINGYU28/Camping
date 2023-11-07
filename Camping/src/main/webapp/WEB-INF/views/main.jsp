@@ -50,26 +50,26 @@
 			</div>
 			<div class="gap"></div>
 			<div class="ImgContainer3Row">
-			<img src="resources/img/campGallery/campGalleryImg7.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img7;">
-            <img src="resources/img/campGallery/campGalleryImg8.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img8;">
-            <img src="resources/img/campGallery/campGalleryImg9.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img9;">
-            <img src="resources/img/campGallery/campGalleryImg10.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img10;">
-            <img src="resources/img/campGallery/campGalleryImg11.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img11;">
-            <img src="resources/img/campGallery/campGalleryImg12.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img12;">
-            <img src="resources/img/campGallery/campGalleryImg13.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img13;">
-            <img src="resources/img/campGallery/campGalleryImg14.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img14;">
-            <img src="resources/img/campGallery/campGalleryImg15.jpg"
-               alt="Camp Image" class="gallery-image" style="grid-area: img15;">
+				<img src="resources/img/campGallery/campGalleryImg7.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img7;">
+				<img src="resources/img/campGallery/campGalleryImg8.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img8;">
+				<img src="resources/img/campGallery/campGalleryImg9.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img9;">
+				<img src="resources/img/campGallery/campGalleryImg10.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img10;">
+				<img src="resources/img/campGallery/campGalleryImg11.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img11;">
+				<img src="resources/img/campGallery/campGalleryImg12.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img12;">
+				<img src="resources/img/campGallery/campGalleryImg13.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img13;">
+				<img src="resources/img/campGallery/campGalleryImg14.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img14;">
+				<img src="resources/img/campGallery/campGalleryImg15.jpg"
+					alt="Camp Image" class="gallery-image" style="grid-area: img15;">
 			</div>
-			
+
 			<%-- <div class="image-list">
 				<c:forEach var="image" items="${imageList}">
 					<img src="<c:out value="${image}" />" alt="Camp Image"
