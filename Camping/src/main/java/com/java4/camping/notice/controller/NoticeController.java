@@ -1,5 +1,6 @@
 package com.java4.camping.notice.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -25,10 +26,19 @@ public class NoticeController {
 	@Autowired
 	private AdminDAO adminDAO;
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String list(Model model) {
-		model.addAttribute("notices", noticeService.getAllNotices());
-		return "admin/list";
+	@RequestMapping(value = "/list/{page}", method = RequestMethod.GET)
+	public String list(Model model, @PathVariable("page") int page) {
+		int totalNotices = noticeService.getTotalNotices();
+		int itemsPerPage = 5; // 원하는 페이지 당 아이템 수
+		int totalPages = (int) Math.ceil((double) totalNotices / itemsPerPage);
+
+		List<Notice> notices = noticeService.getNoticesInRange(page, itemsPerPage);
+
+		model.addAttribute("notices", notices);
+		model.addAttribute("totalPages", totalPages); // totalPages 변수를 모델에 추가
+		model.addAttribute("currentPage", page); // currentPage 변수를 모델에 추가
+
+		return "board/list";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -62,7 +72,7 @@ public class NoticeController {
 
 			Notice notice = new Notice(admin, title, content);
 
-			noticeService.addNotice(notice, notice.getAdminid());
+			noticeService.addNotice(notice, notice.getAdminId());
 		}
 
 		return "redirect:/notices";

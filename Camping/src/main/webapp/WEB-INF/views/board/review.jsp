@@ -1,6 +1,10 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+  String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,19 +44,19 @@
 		</div>
 
 		<div class="boxContainer">
-			<div class="box" id="noticeBox" onclick="goToPage('./announcement')">공지사항</div>
-			<div class="box" id="reviewBox" onclick="goToPage('./review')">이용후기</div>
+			<div class="box" id="noticeBox"
+				onclick="goToPage('<%=contextPath%>/announcement/1')">공지사항</div>
+			<div class="box" id="reviewBox"
+				onclick="goToPage('<%=contextPath%>/review')">이용후기</div>
 		</div>
 
 
 		<div class="reviewNotice">
 			<h1>이용후기</h1>
 		</div>
-		
-		<div class="reviewTextContainer">
-			이용후기 내용
-		</div>
-		
+
+		<div class="reviewTextContainer">이용후기 내용</div>
+
 	</div>
 
 	<footer>

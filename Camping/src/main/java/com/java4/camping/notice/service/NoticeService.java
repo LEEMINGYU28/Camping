@@ -16,24 +16,25 @@ public class NoticeService {
     private NoticeDAO noticeDAO;
     @Autowired
     private AdminDAO adminDAO;
-    
+
     public List<Notice> getAllNotices() {
         List<Notice> notices = noticeDAO.getAll();
         for (Notice notice : notices) {
-            int adminId = notice.getAdminid();
+            int adminId = notice.getAdminId();
             Admin admin = adminDAO.get(adminId);
             notice.setAdmin(admin);
         }
         return notices;
     }
 
-	public Notice get(int id) {
-		Notice notice = noticeDAO.get(id);
-		Admin admin = adminDAO.get(notice.getAdminid());
-		notice.setAdmin(admin);
+    public Notice get(int id) {
+        Notice notice = noticeDAO.get(id);
+        Admin admin = adminDAO.get(notice.getAdminId());
+        notice.setAdmin(admin);
 
-		return notice;
-	}
+        return notice;
+    }
+
     public Notice getNoticeById(int id) {
         return noticeDAO.get(id);
     }
@@ -49,4 +50,12 @@ public class NoticeService {
     public void deleteNotice(int id) {
         noticeDAO.delete(id);
     }
+
+    public List<Notice> getNoticesInRange(int currentPage, int itemsPerPage) {
+        return noticeDAO.getNoticesInRange(currentPage, itemsPerPage);
+    }
+    public int getTotalNotices() {
+        return noticeDAO.getTotalNoticesCount();
+    }
+
 }

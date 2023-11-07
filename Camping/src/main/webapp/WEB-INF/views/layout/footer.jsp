@@ -1,17 +1,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%
+  String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="./resources/styles/layout/footer.css" rel="stylesheet"/> 
+<link href="<%= contextPath %>/resources/styles/layout/footer.css" rel="stylesheet"/> 
 </head>
 <body>
 <footer class="camping-footer">
     <div class="container">
         <div class="footer-content">
-            <img src="./resources/img/categorys/campingLogo3.jpg" alt="Campfire Icon">
+            <img src="<%= contextPath %>/resources/img/categorys/campingLogo3.jpg" alt="Campfire Icon">
             <p>Contact us: contact@campingsite.com</p>
             <ul>
                 <li><a href="/about">About us</a></li>
