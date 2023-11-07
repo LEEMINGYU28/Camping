@@ -44,15 +44,39 @@
 			<div class="box" id="reviewBox" onclick="goToPage('./review')">이용후기</div>
 		</div>
 
+		<section class="notice">
+			<div class="reviewNotice">
+				<div class="container">
+					<h3>이용후기</h3>
+				</div>
+			</div>
 
-		<div class="reviewNotice">
-			<h1>이용후기</h1>
-		</div>
-		
-		<div class="reviewTextContainer">
-			이용후기 내용
-		</div>
-		
+			<div class="reviewTextContainer">
+				<div id="board-list">
+					<div class="container">
+						<table class="board-table">
+							<thead>
+								<tr>
+									<th scope="col" class="th-num">번호</th>
+									<th scope="col" class="th-title">제목</th>
+							
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${review}" var="notice">
+									<tr>
+										<td>${review.user.name}</td>
+										<td><a href="review/${review.id}">${review.title}</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						<a href="reviewCreate">글쓰기</a>
+						<jsp:include page="./reviewList.jsp"/>
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
 
 	<footer>

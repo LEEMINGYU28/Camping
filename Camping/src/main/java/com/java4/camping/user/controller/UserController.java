@@ -53,6 +53,7 @@ public class UserController {
 
 		if (user != null)
 			session.setAttribute("userName", user.getName());
+		session.setAttribute("userId", user.getName());
 		System.out.println("로그인성공");
 		return "redirect:/main";
 	}

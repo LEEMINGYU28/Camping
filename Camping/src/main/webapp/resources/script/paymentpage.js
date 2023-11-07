@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
         if (scrollY > paymentMethodTop) {
             paymentMethod.style.top = scrollY - paymentMethodTop + 'px';
         } else {
-            paymentMethod.style.top = 0%;
+            paymentMethod.style.top;
         }
     }
 });
