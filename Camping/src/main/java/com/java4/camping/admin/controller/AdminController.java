@@ -48,6 +48,7 @@ public class AdminController {
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public String adminLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 		session.setAttribute("adminName", null);
+		session.setAttribute("adminId", null);
 
 		return "redirect:/notices";
 	}

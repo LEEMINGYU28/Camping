@@ -2,11 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
+<%
+  String contextPath = request.getContextPath();
+%>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<link href="resources/styles/board/announcement.css" rel="stylesheet" />
+<link href="<%= contextPath %>/resources/styles/board/announcement.css" rel="stylesheet" />
+
 
 <script>
 	window.onload = function() {
@@ -40,8 +44,8 @@
 		</div>
 
 		<div class="boxContainer">
-			<div class="box" id="noticeBox" onclick="goToPage('announcement')">공지사항</div>
-			<div class="box" id="reviewBox" onclick="goToPage('review')">이용후기</div>
+			<div class="box" id="noticeBox" onclick="goToPage('<%= contextPath %>/announcement/1')">공지사항</div>
+			<div class="box" id="reviewBox" onclick="goToPage('<%= contextPath %>/review')">이용후기</div>
 		</div>
 
 
@@ -49,23 +53,7 @@
 			<h1>공지사항</h1>
 		</div>
 		<div class="anouncementTextContainer">
-			   <h1>공지사항 목록</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>글쓴이</th>
-                <th>제목</th>
-            </tr>
-        </thead>
-        <tbody>
-            <c:forEach items="${notices}" var="notice">
-                <tr>
-                    <td>${notice.admin.name}</td>
-                    <td><a href="notices/${notice.id}">${notice.title}</a></td>
-                </tr>
-            </c:forEach>
-        </tbody>
-    </table>
+			<jsp:include page="../admin/list.jsp" />
 		</div>
 		
 	</div>

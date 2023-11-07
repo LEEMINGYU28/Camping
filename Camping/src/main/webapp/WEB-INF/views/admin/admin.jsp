@@ -88,7 +88,7 @@ a:not([href]):not([tabindex]) {
 						</c:choose>
 					</div>
 				</div>
-				<div class="category-board">2</div>
+				<div class="category-board"><a href="notices/create">글쓰기</a></div>
 				<div class="category-image">3</div>
 			</div>
 
