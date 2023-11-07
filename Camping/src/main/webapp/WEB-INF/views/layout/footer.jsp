@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link href="./resources/styles/layout/footer.css" rel="stylesheet"/> 
 </head>
 <body>

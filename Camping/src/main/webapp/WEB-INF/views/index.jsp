@@ -6,8 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>너의 아지트가 되어줄게</title>
+<title>CAMP</title>
 <link href="resources/styles/index.css" rel="stylesheet" />
+
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
 	<div class="img">

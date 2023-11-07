@@ -5,8 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>예약</title>
+<title>예약날짜 선택 및 결제</title>
 <link href="resources/styles/payment/deepReserve.css" rel="stylesheet" />
+
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
 
 </head>
 <body>

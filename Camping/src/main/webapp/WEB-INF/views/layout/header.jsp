@@ -4,7 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link href="resources/styles/layout/modal.css" rel="stylesheet" />
 <link href="resources/styles/layout/consent.css" rel="stylesheet" />
 <link href="resources/styles/layout/join.css" rel="stylesheet" />

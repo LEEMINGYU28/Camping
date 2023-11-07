@@ -8,6 +8,9 @@
 <title>예약 완료</title>
 <link href="resources/styles/payment/successReserve.css" rel="stylesheet" />
 
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
 

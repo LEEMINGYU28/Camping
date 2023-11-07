@@ -3,8 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title></title>
 <link href="resources/styles/layout/calendar.css" rel="stylesheet" />
 </head>
 <body>
