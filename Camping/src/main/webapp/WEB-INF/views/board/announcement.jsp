@@ -49,7 +49,23 @@
 			<h1>공지사항</h1>
 		</div>
 		<div class="anouncementTextContainer">
-			공지사항 내용
+			   <h1>공지사항 목록</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>글쓴이</th>
+                <th>제목</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach items="${notices}" var="notice">
+                <tr>
+                    <td>${notice.admin.name}</td>
+                    <td><a href="notices/${notice.id}">${notice.title}</a></td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
 		</div>
 		
 	</div>

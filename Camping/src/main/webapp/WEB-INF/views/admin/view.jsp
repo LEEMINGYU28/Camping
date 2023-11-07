@@ -22,7 +22,7 @@
 	<a href="edit/${notice.id}">수정</a>
 	<a href="delete/${notice.id}">삭제</a>
 
-	<a href="/camping/admin">돌아가기</a>
+	<a href="/camping/notices">돌아가기</a>
 </body>
 </html>
 
