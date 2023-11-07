@@ -5,8 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>너의 아지트가 되어줄게</title>
+<title>이용요금</title>
 <link href="resources/styles/category/fee.css" rel="stylesheet" />
+
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
 
 </head>
 <body>

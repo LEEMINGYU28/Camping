@@ -11,6 +11,8 @@
 <meta charset="UTF-8">
 <title>이용후기</title>
 <link href="resources/styles/board/review.css" rel="stylesheet" />
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
 
 
 <script>

@@ -4,8 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
  <link href="<%= contextPath %>/resources/styles/layout/realTimeReserve.css" rel="stylesheet" />
+
   <script>
     function redirectToReservePage() {
       window.location.href = '<%= contextPath %>/reserve#reserveNotice'; 

@@ -7,6 +7,10 @@
 <link href="resources/styles/payment/paymentpage.css" rel="stylesheet" />
 <script type="text/javascript" src="resources/script/paymentpage.js"></script>
 <title>결제 페이지</title>
+
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+
 </head>
 <body>
 	<div>

@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <link href="<%= contextPath %>/resources/styles/layout/modal.css" rel="stylesheet" />
 <link href="<%= contextPath %>/resources/styles/layout/consent.css" rel="stylesheet" />
@@ -14,6 +15,7 @@
 <script type="text/javascript" src="<%= contextPath %>/resources/script/modal.js"></script>
 <script type="text/javascript" src="<%= contextPath %>/resources/script/consent.js"></script>
 <script type="text/javascript" src="<%= contextPath %>/resources/script/join.js"></script>
+
 <script>
 	function showDropdown() {
 		var dropdownMenu = document.getElementById('dropdownMenu');

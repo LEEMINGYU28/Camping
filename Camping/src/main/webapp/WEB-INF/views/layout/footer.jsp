@@ -7,8 +7,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <link href="<%= contextPath %>/resources/styles/layout/footer.css" rel="stylesheet"/> 
+<link href="./resources/styles/layout/footer.css" rel="stylesheet"/> 
 </head>
 <body>
 <footer class="camping-footer">
