@@ -25,19 +25,18 @@ public class NoticeController {
 	@Autowired
 	private AdminDAO adminDAO;
 
-	@RequestMapping(value="/notices ",method = RequestMethod.GET)
-	public String listNotices(Model model) {
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model) {
 		model.addAttribute("notices", noticeService.getAllNotices());
-		return "admin/admin";
+		return "admin/list";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String viewNotice(Model model, @PathVariable("id") int id) {
-	    Notice notice = noticeService.get(id);
-	    model.addAttribute("notice", notice); 
-	    return "admin/view";
+		Notice notice = noticeService.get(id);
+		model.addAttribute("notice", notice);
+		return "admin/view";
 	}
-
 
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateForm() {
@@ -48,7 +47,7 @@ public class NoticeController {
 	public String createNotice(@RequestParam Map<String, String> map, HttpSession session) {
 
 		String adminId = (String) session.getAttribute("adminId");
-		
+
 		if (adminId == null) {
 
 			return "redirect:/notices";
@@ -78,20 +77,20 @@ public class NoticeController {
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
 	public String editNotice(@PathVariable("id") int id, @RequestParam("title") String title,
-			@RequestParam("content") String content,HttpSession session) {
+			@RequestParam("content") String content, HttpSession session) {
 		String adminId = (String) session.getAttribute("adminId");
 		if (adminId == null) {
 
 			return "redirect:/notices";
+		} else {
+			Notice notice = new Notice();
+			notice.setId(id);
+			notice.setTitle(title);
+			notice.setContent(content);
+			noticeService.updateNotice(notice);
+			return "redirect:/notices";
 		}
-		else {	Notice notice = new Notice();
-		notice.setId(id);
-		notice.setTitle(title);
-		notice.setContent(content);
-		noticeService.updateNotice(notice);
-		return "redirect:/notices";
-		}
-	
+
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
@@ -102,13 +101,12 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
-	public String deleteNotice(@PathVariable("id") int id,HttpSession session) {
+	public String deleteNotice(@PathVariable("id") int id, HttpSession session) {
 		String adminId = (String) session.getAttribute("adminId");
 		if (adminId == null) {
 
 			return "redirect:/notices";
-		}
-		else {
+		} else {
 			noticeService.deleteNotice(id);
 			return "redirect:/notices";
 		}

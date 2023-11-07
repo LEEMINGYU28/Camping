@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>관리자페이지테스트</title>
-<link href="resources/styles/admin.css" rel="stylesheet" />
-<link href="resources/styles/adminModal.css" rel="stylesheet" />
+<link href="resources/styles/admin/admin.css" rel="stylesheet" />
+<link href="resources/styles/admin/adminModal.css" rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -35,9 +35,6 @@ a:not([href]):not([tabindex]) {
 </style>
 </head>
 <body>
-	<%
-		
-	%>
 	<div class="container">
 
 		<div class="title">
@@ -83,7 +80,12 @@ a:not([href]):not([tabindex]) {
 			<div class="category">
 				<div class="category-user">
 					<div class="notice-list">
-						<jsp:include page="/WEB-INF/views/admin/list.jsp" />
+						<c:choose>
+						<c:when test="${notices !=null }">
+						<jsp:include page="./list.jsp" />
+						</c:when>
+						<c:otherwise>실패</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 				<div class="category-board">2</div>
@@ -155,7 +157,7 @@ a:not([href]):not([tabindex]) {
 
 
 
-	<script src=resources/js/modals.js></script>
+	<script src=resources/script/adminModal.js></script>
 
 
 </body>

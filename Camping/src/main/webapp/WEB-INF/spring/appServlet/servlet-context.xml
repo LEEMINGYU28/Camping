@@ -26,9 +26,10 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<context:component-scan
-		base-package="com.java4.camping" />
-
-
+	
+	<context:component-scan base-package="com.java4.camping" />
+	
+	
+	
 
 </beans:beans>
