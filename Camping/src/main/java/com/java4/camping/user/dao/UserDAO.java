@@ -2,6 +2,7 @@ package com.java4.camping.user.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -47,6 +48,9 @@ public class UserDAO {
 		return jdbcTemplate.queryForObject("select * from users where \"name\"=?", 
 				new Object[] { name },
 				mapper);
+	}
+	public List<User> getAll() {
+		return jdbcTemplate.query("SELECT * FROM users", mapper);
 	}
 	
 	public void deleteAll() {

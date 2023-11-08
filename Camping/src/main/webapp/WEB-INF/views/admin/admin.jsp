@@ -83,12 +83,16 @@ a:not([href]):not([tabindex]) {
 						<c:choose>
 						<c:when test="${notices !=null }">
 						<jsp:include page="./list.jsp" />
+						<a href="notices/create">글쓰기</a>
 						</c:when>
 						<c:otherwise>실패</c:otherwise>
 						</c:choose>
 					</div>
+					<div class="category-admin">
+                    <a href="/camping/admin/userList">회원 목록 조회</a>
+                </div>
 				</div>
-				<div class="category-board"><a href="notices/create">글쓰기</a></div>
+				<div class="category-board"></div>
 				<div class="category-image">3</div>
 			</div>
 
