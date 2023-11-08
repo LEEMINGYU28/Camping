@@ -12,7 +12,7 @@ import com.java4.camping.admin.domain.Admin;
 public class AdminService {
 	@Autowired
 	AdminDAO adminDAO;
-
+	
 	public void add(Admin admin) {
 		admin.setAdminPw(cryptoPassword(admin.getAdminPw()));
 		adminDAO.add(admin);

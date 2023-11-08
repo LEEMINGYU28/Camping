@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -42,28 +43,31 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/logins", method = RequestMethod.POST)
-	public String userLogInPost(@RequestParam Map<String, String> map, HttpSession session) {
-		User user = new User();
-		user.setUserId(map.get("userId"));
-		user.setUserPw(map.get("userPw"));
+	public String userLogInPost(@RequestParam Map<String, String> map, HttpSession session, Model model) {
+	    User user = new User();
+	    user.setUserId(map.get("userId"));
+	    user.setUserPw(map.get("userPw"));
 
-		user = userService.logins(user);
+	    user = userService.logins(user);
 
-//		user = userService.login(user);
-
-		if (user != null)
-			session.setAttribute("userName", user.getName());
-		session.setAttribute("userId", user.getName());
-		System.out.println("로그인성공");
-		return "redirect:/main";
+	    if (user != null) {
+	        session.setAttribute("userId", user.getUserId());
+	        session.setAttribute("userName", user.getName()); 
+	        return "redirect:/main";
+	    } else {
+	        model.addAttribute("error", "아이디 또는 비밀번호가 잘못되었습니다.");
+	        return "redirect:/main";
+	    }
 	}
+
+
 
 	@RequestMapping(value = "/logouts", method = RequestMethod.POST)
 
 	public String userLogOutPost(@RequestParam Map<String, String> map, HttpSession session) {
 
 		session.setAttribute("userName", null);
-
+		session.setAttribute("userId", null);
 		return "redirect:/main";
 	}
 

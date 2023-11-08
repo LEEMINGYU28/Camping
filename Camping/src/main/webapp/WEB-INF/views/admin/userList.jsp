@@ -1,10 +1,12 @@
-<%-- userList.jsp --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+  String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- 스타일 및 스크립트 태그들은 생략 -->
 </head>
 <body>
     <div class="container">
@@ -26,11 +28,12 @@
                         <td>${user.name}</td>
                         <td>${user.userId}</td>
                         <td>${user.createdAt}</td>
-                        <td><a href="/camping/notices/viewUser?id=${user.id}">상세보기</a></td>
+                        <td><a href="<%=contextPath %>/viewUser/${user.id}">상세보기</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+         <a href="<%= contextPath %>/notices">관리자페이지</a>
     </div>
 </body>
 </html>

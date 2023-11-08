@@ -74,7 +74,7 @@
 				<li class="nav-item"><a class="nav-link" href="<%= contextPath %>/main">HOME</a></li>
 				<li class="nav-item dropdown" onmouseover="showDropdown()"
 					onmouseout="hideDropdown()"><a class="nav-link"
-					href="announcement/1" id="dropdownMenuButton" aria-haspopup="true"
+					href="<%= contextPath %>/announcement/1" id="dropdownMenuButton" aria-haspopup="true"
 					aria-expanded="false">캠핑장소식</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
 						id="dropdownMenu">

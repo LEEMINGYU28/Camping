@@ -1,6 +1,7 @@
-<%-- viewUser.jsp --%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<% String contextPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +28,8 @@
                 <td>${user.createdAt}</td>
             </tr>
         </table>
-        <a href="/camping/notices/userList">목록으로 돌아가기</a>
+        <a href="<%= contextPath %>/userList">목록으로 돌아가기</a>
+        <a href="<%= contextPath %>/notices">관리자페이지</a>
     </div>
 </body>
 </html>

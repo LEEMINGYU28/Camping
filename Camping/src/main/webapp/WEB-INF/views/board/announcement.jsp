@@ -9,9 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-
 <link href="<%= contextPath %>/resources/styles/board/announcement.css" rel="stylesheet" />
-
 <link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
 <link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
 

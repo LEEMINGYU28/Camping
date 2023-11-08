@@ -11,6 +11,7 @@ public class Notice {
     private Admin admin;
     private String title;
     private String content;
+    private String writer;
     private Date createdAt;
 
  
@@ -42,7 +43,13 @@ public class Notice {
     public int getId() {
         return id;
     }
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
 
+    public String getWriter() {
+        return writer;
+    }
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }

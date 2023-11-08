@@ -1,12 +1,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+ <% String contextPath = request.getContextPath(); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>CAMP</title>
-<link href="resources/styles/main.css" rel="stylesheet" />
+<link href="<%=contextPath %>/resources/styles/main.css" rel="stylesheet" />
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -18,8 +19,8 @@
 <link rel="stylesheet" type="text/css"
    href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
 
-<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
-<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="<%=contextPath %>/resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<%=contextPath %>/resources/img/boards/favicon.ico" type="image/x-icon">
 
 </head>
 <body>
@@ -49,82 +50,82 @@
             </p>
          </div>
          <div class="ImgContainer2Row">
-            <a href="resources/img/campGallery/campGalleryImg1.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg1.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg1.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg1.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img1;">
             </a> 
-            <a href="resources/img/campGallery/campGalleryImg2.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg2.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg2.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg2.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img2;">
             </a> 
-            <a href="resources/img/campGallery/campGalleryImg3.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg3.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg3.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg3.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img3;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg4.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg4.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg4.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg4.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img4;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg5.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg5.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg5.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg5.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img5;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg6.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg6.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg6.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg6.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img6;">
             </a>
          </div>
          <div class="gap"></div>
          <div class="ImgContainer3Row">
-            <a href="resources/img/campGallery/campGalleryImg7.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg7.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg7.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg7.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img7;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg8.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg8.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg8.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg8.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img8;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg9.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg9.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg9.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg9.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img9;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg10.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg10.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg10.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg10.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img10;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg11.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg11.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg11.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg11.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img11;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg12.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg12.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg12.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg12.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img12;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg13.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg13.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg13.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg13.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img13;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg14.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg14.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg14.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg14.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img14;">
             </a>
-            <a href="resources/img/campGallery/campGalleryImg15.jpg"
+            <a href="<%=contextPath %>/resources/img/campGallery/campGalleryImg15.jpg"
                data-fancybox="gallery" class="gallery-link"> <img
-               src="resources/img/campGallery/campGalleryImg15.jpg"
+               src="<%=contextPath %>/resources/img/campGallery/campGalleryImg15.jpg"
                alt="Camp Image" class="gallery-image" style="grid-area: img15;">
             </a>
          </div>
@@ -135,7 +136,9 @@
             <p>
                <span>공지사항</span>
             </p>
-            <div class="mainAnnouncementTextContainer">공지사항 내용</div>
+            <div class="mainAnnouncementTextContainer">
+			<jsp:include page="./admin/mainList.jsp" />
+		</div>
          </div>
       </div>
    </div>

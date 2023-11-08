@@ -1,13 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>관리자페이지테스트</title>
-<link href="resources/styles/admin/admin.css" rel="stylesheet" />
-<link href="resources/styles/admin/adminModal.css" rel="stylesheet" />
+<link href="<%=contextPath%>/resources/styles/admin/admin.css"
+	rel="stylesheet" />
+<link href="<%=contextPath%>/resources/styles/admin/adminModal.css"
+	rel="stylesheet" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
@@ -33,13 +38,14 @@ a:not([href]):not([tabindex]) {
 	width: 50%; /* Could be more or less, depending on screen size */
 }
 </style>
+
 </head>
 <body>
 	<div class="container">
 
 		<div class="title">
 			<nav class="navbar navbar-expand navbar-dark bg-dark">
-				<a class="navbar-brand" href="/camping/admin">관리자 페이지</a>
+				<a class="navbar-brand" href="/camping/notices">관리자 페이지</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#navbarsExample02" aria-controls="navbarsExample02"
 					aria-expanded="false" aria-label="Toggle navigation">
@@ -80,17 +86,12 @@ a:not([href]):not([tabindex]) {
 			<div class="category">
 				<div class="category-user">
 					<div class="notice-list">
-						<c:choose>
-						<c:when test="${notices !=null }">
-						<jsp:include page="./list.jsp" />
+						<jsp:include page="./adminList.jsp" />
 						<a href="notices/create">글쓰기</a>
-						</c:when>
-						<c:otherwise>실패</c:otherwise>
-						</c:choose>
 					</div>
 					<div class="category-admin">
-                    <a href="/camping/admin/userList">회원 목록 조회</a>
-                </div>
+						<a href="<%=contextPath%>/userList">회원 목록 조회</a>
+					</div>
 				</div>
 				<div class="category-board"></div>
 				<div class="category-image">3</div>
@@ -160,8 +161,9 @@ a:not([href]):not([tabindex]) {
 
 
 
+	<script src=<%= contextPath %>/resources/script/adminModal.js></script>
 
-	<script src=resources/script/adminModal.js></script>
+
 
 
 </body>
