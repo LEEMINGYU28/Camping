@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.java4.camping.admin.domain.Admin;
@@ -23,11 +24,16 @@ public class UserService {
 	}
 
 	public User logins(User user) {
-		User tempUser = userDAO.get(user.getUserId());
-		if (tempUser != null && tempUser.getUserPw().equals(cryptoPassword(user.getUserPw()))) {
-			return tempUser;
-		} else
+		try {
+			User tempUser = userDAO.get(user.getUserId());
+			if (tempUser != null && tempUser.getUserPw().equals(cryptoPassword(user.getUserPw()))) {
+				return tempUser;
+			} else {
+				return null;
+			}
+		} catch (EmptyResultDataAccessException e) {
 			return null;
+		}
 	}
 
 	private String cryptoPassword(String password) {
@@ -45,11 +51,16 @@ public class UserService {
 			return null;
 		}
 	}
-    public List<User> getAllUsers() {
-        return userDAO.getAll();
-    }
 
-    public User getUserById(int id) {
-        return userDAO.get(id);
-    }
+	public List<User> getAllUsers() {
+		return userDAO.getAll();
+	}
+
+	public User getUserById(int id) {
+		return userDAO.get(id);
+	}
+
+	public User getUser(String userId) {
+		return userDAO.get(userId);
+	}
 }

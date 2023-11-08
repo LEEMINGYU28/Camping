@@ -26,19 +26,47 @@ public class NoticeController {
 	@Autowired
 	private AdminDAO adminDAO;
 
-	@RequestMapping(value = "/list/{page}", method = RequestMethod.GET)
-	public String list(Model model, @PathVariable("page") int page) {
+	@RequestMapping(value = "/notices", method = RequestMethod.GET)
+	public String listNotices(Model model,
+			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
 		int totalNotices = noticeService.getTotalNotices();
-		int itemsPerPage = 5; // 원하는 페이지 당 아이템 수
+		int itemsPerPage = 5;
 		int totalPages = (int) Math.ceil((double) totalNotices / itemsPerPage);
 
 		List<Notice> notices = noticeService.getNoticesInRange(page, itemsPerPage);
 
-		model.addAttribute("notices", notices);
-		model.addAttribute("totalPages", totalPages); // totalPages 변수를 모델에 추가
-		model.addAttribute("currentPage", page); // currentPage 변수를 모델에 추가
+		for (Notice notice : notices) {
+			int adminId = notice.getAdminId();
+			Admin admin = adminDAO.get(adminId);
+			notice.setAdmin(admin);
+		}
 
-		return "board/list";
+		model.addAttribute("notices", notices);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
+
+		return "admin/admin";
+	}
+
+	@RequestMapping(value = "/adminList/{page}", method = RequestMethod.GET)
+	public String list(Model model, @PathVariable("page") Integer page) {
+		int totalNotices = noticeService.getTotalNotices();
+		int itemsPerPage = 5;
+		int totalPages = (int) Math.ceil((double) totalNotices / itemsPerPage);
+
+		List<Notice> notices = noticeService.getNoticesInRange(page, itemsPerPage);
+
+		for (Notice notice : notices) {
+			int adminId = notice.getAdminId();
+			Admin admin = adminDAO.get(adminId);
+			notice.setAdmin(admin);
+		}
+
+		model.addAttribute("notices", notices);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
+
+		return "admin/admin";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -47,12 +75,12 @@ public class NoticeController {
 		model.addAttribute("notice", notice);
 		return "admin/view";
 	}
-
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public String showCreateForm() {
 		return "admin/create";
 	}
 
+	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public String createNotice(@RequestParam Map<String, String> map, HttpSession session) {
 

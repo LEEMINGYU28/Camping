@@ -25,7 +25,7 @@
 
 	<div class="container">
 		<div class="header">
-			<h1>김남균 님 안녕하세요.</h1>
+			<h1>${user.name } 님 안녕하세요.</h1>
 		</div>
 		<div class="user-info">
 			<!-- 회원 정보 -->
