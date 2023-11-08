@@ -132,6 +132,11 @@
 			<artifactId>spring-data-jpa</artifactId>
 			<version>2.4.5</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.5</version> <!-- 최신 버전을 사용하려면 버전 번호를 조정하세요 -->
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

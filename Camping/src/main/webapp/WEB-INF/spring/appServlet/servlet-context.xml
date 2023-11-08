@@ -25,11 +25,14 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="10000000" /> <!-- Maximum upload size in bytes -->
+	</beans:bean>
+	<context:component-scan
+		base-package="com.java4.camping" />
 
-	
-	<context:component-scan base-package="com.java4.camping" />
-	
-	
-	
+
+
 
 </beans:beans>

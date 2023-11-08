@@ -25,7 +25,9 @@
 									<th>
 									<a href="#!">${review.title}</a>
 									</th>
-								
+								  <td>
+                                <img src="file:///C:/Users/KGA/git/img/${review.imageFilename}" alt="${review.title} 이미지">
+                            </td>
 								</tr>	
 								</c:forEach>
 							</tbody>

@@ -11,9 +11,11 @@ public class Review {
 	private String title;
 	private String content;
 	private Date createdAt;
-	
+	private String imageFilename;
+
 	public Review() {
 	}
+
 	public Review(User user, String title, String content) {
 		this.user = user;
 		this.title = title;
@@ -74,6 +76,14 @@ public class Review {
 
 	public Date getCreatedAt() {
 		return createdAt;
+	}
+
+	public void setImageFilename(String imageFilename) {
+		this.imageFilename = imageFilename;
+	}
+
+	public String getImageFilename() {
+		return imageFilename;
 	}
 
 }

@@ -13,7 +13,7 @@
 
 	<div class='form-0'>
 
-		<form class='form-1' action="/camping/reviewCreate" method="POST">
+		<form action="/camping/reviewCreate" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="${review.id}">
 			 <input	class='write-1' type="text" name="title" maxlength="44"
 				placeholder="제목 입력, 최대 44자까지 가능합니다">
