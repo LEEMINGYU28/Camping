@@ -97,7 +97,7 @@
 		calendarBody
 				.addEventListener(
 						"click",
-						function(e) {
+						function(e) { //여기
 							if (e.target
 									&& e.target.classList
 											.contains("selectable")) {
