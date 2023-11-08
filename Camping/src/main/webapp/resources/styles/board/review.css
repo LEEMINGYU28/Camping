@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999; 
+}
 .reviewImg {
 	background-image: url("../../img/boards/announcement.jpg");
 	width: 100%;

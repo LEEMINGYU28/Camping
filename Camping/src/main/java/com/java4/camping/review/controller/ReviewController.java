@@ -25,7 +25,7 @@ public class ReviewController {
 	@Autowired
 	private UserDAO userDAO;
 
-	@RequestMapping(value="/review ",method = RequestMethod.GET)
+	@RequestMapping(value = "/review ", method = RequestMethod.GET)
 	public String listReview(Model model) {
 		model.addAttribute("review", reviewService.getAllReview());
 		return "board/review";
@@ -33,11 +33,10 @@ public class ReviewController {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String viewReview(Model model, @PathVariable("id") int id) {
-	    Review review = reviewService.get(id);
-	    model.addAttribute("review", review); 
-	    return "board/review";
+		Review review = reviewService.get(id);
+		model.addAttribute("review", review);
+		return "board/review";
 	}
-
 
 	@RequestMapping(value = "/reviewCreate", method = RequestMethod.GET)
 	public String showReviewCreateForm() {
@@ -47,24 +46,24 @@ public class ReviewController {
 	@RequestMapping(value = "/reviewCreate", method = RequestMethod.POST)
 	public String createReview(@RequestParam Map<String, String> map, HttpSession session) {
 		System.out.println("createReview 메서드 호출");
-	
 
 		String userId = (String) session.getAttribute("userId");
-		
+		System.out.println("userId1 = " + userId);
 		if (userId == null) {
 
 			return "redirect:/review";
 		}
-
+		System.out.println("userId3 = " + userId);
 		String title = map.get("title");
+		System.out.println("제목 = " + title);
 		String content = map.get("content");
+		System.out.println("content = " + content);
 		User user = userDAO.get(userId);
-		System.out.println("userId: " + userId);
 		System.out.println("user: " + user);
 		if (user != null) {
-
+			System.out.println("userId2 = " + userId);
 			Review review = new Review(user, title, content);
-			System.out.println("Review 객체: " + review);
+//			System.out.println("Review 객체: " + review);
 
 			reviewService.addReview(review, review.getUserId());
 			System.out.println("작성성공");
@@ -82,20 +81,20 @@ public class ReviewController {
 
 	@RequestMapping(value = "/reviewEdit/{id}", method = RequestMethod.POST)
 	public String editReview(@PathVariable("id") int id, @RequestParam("title") String title,
-			@RequestParam("content") String content,HttpSession session) {
+			@RequestParam("content") String content, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		if (userId == null) {
 
 			return "redirect:/review";
+		} else {
+			Review review = new Review();
+			review.setId(id);
+			review.setTitle(title);
+			review.setContent(content);
+			reviewService.updateReview(review);
+			return "redirect:/review";
 		}
-		else {	Review review = new Review();
-		review.setId(id);
-		review.setTitle(title);
-		review.setContent(content);
-		reviewService.updateReview(review);
-		return "redirect:/review";
-		}
-	
+
 	}
 
 	@RequestMapping(value = "/reviewDelete/{id}", method = RequestMethod.GET)
@@ -106,13 +105,12 @@ public class ReviewController {
 	}
 
 	@RequestMapping(value = "/reviewDelete/{id}", method = RequestMethod.POST)
-	public String deleteReview(@PathVariable("id") int id,HttpSession session) {
+	public String deleteReview(@PathVariable("id") int id, HttpSession session) {
 		String userId = (String) session.getAttribute("userId");
 		if (userId == null) {
 
 			return "redirect:/review";
-		}
-		else {
+		} else {
 			reviewService.deleteReview(id);
 			return "redirect:/review";
 		}

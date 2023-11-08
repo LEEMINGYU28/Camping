@@ -72,7 +72,7 @@
 							</tbody>
 						</table>
 						<a href="reviewCreate">글쓰기</a>
-						<jsp:include page="./reviewList.jsp"/>
+						<%-- <jsp:include page="./reviewList.jsp"/> --%>
 					</div>
 				</div>
 			</div>
