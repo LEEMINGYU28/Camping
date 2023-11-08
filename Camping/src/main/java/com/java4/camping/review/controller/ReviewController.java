@@ -1,5 +1,6 @@
 package com.java4.camping.review.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -25,10 +26,11 @@ public class ReviewController {
 	@Autowired
 	private UserDAO userDAO;
 
-	@RequestMapping(value = "/review ", method = RequestMethod.GET)
-	public String listReview(Model model) {
-		model.addAttribute("review", reviewService.getAllReview());
-		return "board/review";
+	@RequestMapping(value = "/reviewList", method = RequestMethod.GET)
+	public String ReviewList(Model model) {
+		List<Review> reviews = reviewService.getAllReview();
+		model.addAttribute("reviews",reviews);
+		return "board/reviewList";
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -48,22 +50,21 @@ public class ReviewController {
 		System.out.println("createReview 메서드 호출");
 
 		String userId = (String) session.getAttribute("userId");
-		System.out.println("userId1 = " + userId);
 		if (userId == null) {
 
 			return "redirect:/review";
 		}
-		System.out.println("userId3 = " + userId);
+		
 		String title = map.get("title");
-		System.out.println("제목 = " + title);
+		
 		String content = map.get("content");
-		System.out.println("content = " + content);
-		User user = userDAO.get(userId);
-		System.out.println("user: " + user);
+		
+		User user = userDAO.getName(userId);
+	
 		if (user != null) {
-			System.out.println("userId2 = " + userId);
+
 			Review review = new Review(user, title, content);
-//			System.out.println("Review 객체: " + review);
+
 
 			reviewService.addReview(review, review.getUserId());
 			System.out.println("작성성공");

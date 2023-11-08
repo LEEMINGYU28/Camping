@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-  String contextPath = request.getContextPath();
+	String contextPath = request.getContextPath();
 %>
 <!DOCTYPE html>
 <html>
@@ -11,8 +11,10 @@
 <meta charset="UTF-8">
 <title>이용후기</title>
 <link href="resources/styles/board/review.css" rel="stylesheet" />
-<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
-<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="resources/img/boards/favicon.ico"
+	type="image/x-icon">
+<link rel="icon" href="resources/img/boards/favicon.ico"
+	type="image/x-icon">
 
 
 <script>
@@ -61,44 +63,16 @@
 
 
 			<div class="reviewTextContainer">
-				<div id="board-list">
-					<div class="container">
-						<table class="board-table">
-							<thead>
-								<tr>
-									<th scope="col" class="th-num">번호</th>
-									<th scope="col" class="th-title">제목</th>
-							
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${review}" var="notice">
-									<tr>
-										<td>${review.user.name}</td>
-										<td><a href="review/${review.id}">${review.title}</a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-						<a href="reviewCreate">글쓰기</a>
-						<%-- <jsp:include page="./reviewList.jsp"/> --%>
-					</div>
-				</div>
+
+				<jsp:include page="./reviewList.jsp" />
 			</div>
+
 		</section>
 
-		<div class="reviewNotice">
-			<h1>이용후기</h1>
-		</div>
-
-		<div class="reviewTextContainer">이용후기 내용</div>
-
-	</div>
-
-	<footer>
-		<jsp:include page='../layout/footer.jsp'>
-			<jsp:param name="pageName" value="footer" />
-		</jsp:include>
-	</footer>
+		<footer>
+			<jsp:include page='../layout/footer.jsp'>
+				<jsp:param name="pageName" value="footer" />
+			</jsp:include>
+		</footer>
 </body>
 </html>

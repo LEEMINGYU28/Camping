@@ -25,7 +25,11 @@ public class AdminDAO {
 		@Override
 		public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
-			return new Admin(rs.getInt("id"), rs.getString("name"), rs.getString("admin_id"), rs.getString("admin_pw"),
+			return new Admin(
+					rs.getInt("id"),
+					rs.getString("name"),
+					rs.getString("admin_id"),
+					rs.getString("admin_pw"),
 					rs.getDate("created_at"));
 		}
 	};

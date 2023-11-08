@@ -27,7 +27,11 @@ public class ReviewDAO {
 		@Override
 		public Review mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
-			return new Review(rs.getInt("id"), rs.getInt("user_id"), rs.getString("title"), rs.getString("content"),
+			return new Review(
+					rs.getInt("id"),
+					rs.getInt("user_id"),
+					rs.getString("title"),
+					rs.getString("content"),
 					rs.getDate("created_at"));
 		}
 	};
@@ -44,7 +48,7 @@ public class ReviewDAO {
 	}
 
 	public List<Review> getAll() {
-		return jdbcTemplate.query("select * from review order by \"id\"", mapper);
+		return jdbcTemplate.query("select * from review order by \"id\" DESC", mapper);
 
 	}
 

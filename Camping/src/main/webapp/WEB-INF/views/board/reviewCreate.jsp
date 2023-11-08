@@ -20,7 +20,7 @@
 			<hr>
 			<textarea class='write-2' name="content" rows="20" cols="20"
 				maxlength="254" placeholder="내용 작성, 최대 254자 가능합니다"></textarea>
-			<!-- <input class='write-3' type="file" name="file" id="fileToUpload"> -->
+			<input class='write-3' type="file" name="imageFile" id="fileToUpload">
 
 			<hr>
 

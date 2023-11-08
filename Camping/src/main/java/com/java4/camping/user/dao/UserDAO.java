@@ -43,8 +43,12 @@ public class UserDAO {
 		return jdbcTemplate.queryForObject("select * from users where \"id\"=?", 
 				new Object[] { id },mapper);
 	}
+	public User get(String userId) {
+		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", 
+				new Object[] { userId },mapper);
+	}
 
-	public User get(String name) {
+	public User getName(String name) {
 		return jdbcTemplate.queryForObject("select * from users where \"name\"=?", 
 				new Object[] { name },
 				mapper);

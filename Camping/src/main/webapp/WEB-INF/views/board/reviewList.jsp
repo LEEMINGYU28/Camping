@@ -8,23 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<table>
-				<thead>
-					<tr>
-						<th>글쓴이</th>
-						<th>제목</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${review}" var="notice">
-						<tr>
-							<td>${review.user.name}</td>
-							<td><a href="notices/${review.id}">${review.title}</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<a href="reviewCreate">글쓰기</a>
+		<div id="board-list">
+					<div class="container">
+						<table class="board-table">
+							<thead>
+								<tr>
+									<th scope="col" class="th-num">번호</th>
+									<th scope="col" class="th-title">제목</th>
+
+								</tr>
+							</thead>
+							<tbody>
+									<c:forEach items="${reviews}" var="review">
+								<tr>
+									<td>${review.id}</td>
+									<th>
+									<a href="#!">${review.title}</a>
+									</th>
+								
+								</tr>	
+								</c:forEach>
+							</tbody>
+						</table>
+						<a href="reviewCreate">글쓰기</a>
+						<%-- <jsp:include page="./reviewList.jsp"/> --%>
+					</div>
+				</div>
 
 </body>
 </html>
