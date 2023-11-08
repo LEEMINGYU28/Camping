@@ -38,20 +38,20 @@ public class HomeController {
 		return "main";
 	}
 
-	@RequestMapping(value = "/announcement/{page}", method = RequestMethod.GET)
-	public String announcement(Model model, @PathVariable("page") int page) {
-		int totalNotices = noticeService.getTotalNotices();
-		int itemsPerPage = 5; // 원하는 페이지 당 아이템 수
-		int totalPages = (int) Math.ceil((double) totalNotices / itemsPerPage);
-
-		List<Notice> notices = noticeService.getNoticesInRange(page, itemsPerPage);
-
-		model.addAttribute("notices", notices);
-		model.addAttribute("totalPages", totalPages);
-		model.addAttribute("currentPage", page); // 현재 페이지를 모델에 추가
-
-		return "board/announcement";
-	}
+//	@RequestMapping(value = "/announcement/{page}", method = RequestMethod.GET)
+//	public String announcement(Model model, @PathVariable("page") int page) {
+//		int totalNotices = noticeService.getTotalNotices();
+//		int itemsPerPage = 5; // 원하는 페이지 당 아이템 수
+//		int totalPages = (int) Math.ceil((double) totalNotices / itemsPerPage);
+//
+//		List<Notice> notices = noticeService.getNoticesInRange(page, itemsPerPage);
+//
+//		model.addAttribute("notices", notices);
+//		model.addAttribute("totalPages", totalPages);
+//		model.addAttribute("currentPage", page); // 현재 페이지를 모델에 추가
+//
+//		return "board/announcement";
+//	}
 
 	@RequestMapping(value = "/fee", method = RequestMethod.GET)
 	public String fee() {
@@ -68,8 +68,5 @@ public class HomeController {
 		return "layout/calendar";
 	}
 
-	@RequestMapping(value = "/review", method = RequestMethod.GET)
-	public String review() {
-		return "board/review";
-	}
+
 }

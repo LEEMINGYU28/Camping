@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.java4.camping.notice.domain.Notice;
 import com.java4.camping.review.dao.ReviewDAO;
 import com.java4.camping.review.domain.Review;
 import com.java4.camping.user.dao.UserDAO;
@@ -50,4 +51,10 @@ public class ReviewService {
 	public void deleteReview(int id) {
 		reviewDAO.delete(id);
 	}
+    public List<Review> getReviewInRange(int currentPage, int itemsPerPage) {
+        return reviewDAO.getReviewInRange(currentPage, itemsPerPage);
+    }
+    public int getTotalReview() {
+        return reviewDAO.getTotalReviewCount();
+    }
 }

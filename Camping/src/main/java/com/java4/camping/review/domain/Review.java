@@ -22,11 +22,12 @@ public class Review {
 		this.content = content;
 	}
 
-	public Review(int id, int userId, String title, String content, Date createdAt) {
+	public Review(int id, int userId, String title, String content, String imageFilename, Date createdAt) {
 		this.id = id;
 		this.userId = userId;
 		this.title = title;
 		this.content = content;
+		this.imageFilename = imageFilename;
 		this.createdAt = createdAt;
 	}
 

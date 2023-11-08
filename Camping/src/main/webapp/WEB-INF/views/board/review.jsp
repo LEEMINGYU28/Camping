@@ -10,12 +10,13 @@
 <head>
 <meta charset="UTF-8">
 <title>이용후기</title>
-<link href="resources/styles/board/review.css" rel="stylesheet" />
+<script type="text/javascript"
+	src="<%=contextPath%>/resources/script/review.js"></script>
+<link href="<%=contextPath%>/resources/styles/board/review.css" rel="stylesheet" />
 <link rel="shortcut icon" href="resources/img/boards/favicon.ico"
 	type="image/x-icon">
 <link rel="icon" href="resources/img/boards/favicon.ico"
 	type="image/x-icon">
-
 
 <script>
 	window.onload = function() {
@@ -61,18 +62,62 @@
 				</div>
 			</div>
 
-
 			<div class="reviewTextContainer">
-
-				<jsp:include page="./reviewList.jsp" />
+				<div id="board-list">
+					<div class="container">
+						<table class="board-table">
+							<c:if test="${currentPage > 1}">
+								<a href="<c:url value='/review/${currentPage - 1}' />">이전
+									페이지</a>
+							</c:if>
+							<thead>
+								<tr>
+									<th scope="col" class="th-num">번호</th>
+									<th scope="col" class="th-title">제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${reviews}" var="review">
+									<tr>
+										<td>${review.id}</td>
+										<td><a href="javascript:void(0);"
+											onclick="openModal('${review.title}', '${review.content}', '${pageContext.request.contextPath}/resources/uploadimg/${review.imageFilename}')">
+												${review.title} </a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+						<a href="<%=contextPath%>/reviewCreate">글쓰기</a>
+						<c:if test="${currentPage < totalPages}">
+							<a href="<c:url value='/review/${currentPage + 1}' />">다음
+								페이지</a>
+						</c:if>
+					</div>
+				</div>
 			</div>
-
 		</section>
 
-		<footer>
-			<jsp:include page='../layout/footer.jsp'>
-				<jsp:param name="pageName" value="footer" />
-			</jsp:include>
-		</footer>
+	</div>
+
+	<footer>
+		<jsp:include page='../layout/footer.jsp'>
+			<jsp:param name="pageName" value="footer" />
+		</jsp:include>
+	</footer>
+	<div id="reviewModal" class="modal">
+		<div class="modal-content">
+			<span class="close" id="modalClose" onclick="closeModal()">&times;</span>
+			<h2 id="modalTitle"></h2>
+			<p id="modalContent"></p>
+			<img id="modalImage" src="" alt="Review Image"
+				onclick="enlargeImage()">
+		</div>
+	</div>
+
+	<div id="imageModal" class="modal-image">
+		<span class="close-image" id="imageModalClose"
+			onclick="closeEnlargedImage()">&times;</span> <img
+			id="enlargedModalImage" src="" alt="Enlarged Image">
+	</div>
 </body>
 </html>

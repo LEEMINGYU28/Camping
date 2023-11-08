@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
-
-
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999; 
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
 }
+
 .reviewImg {
 	background-image: url("../../img/boards/announcement.jpg");
 	width: 100%;
@@ -166,4 +165,67 @@ section.notice {
 
 .board-table tbody th p {
 	display: none;
+}
+/* 모달 창 스타일 */
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+	position: absolute;
+	background-color: white;
+	margin: 10% auto;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 80%;
+}
+
+.close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	cursor: pointer;
+}
+/* 모달 이미지 확대 스타일 */
+.modal-image {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	padding-top: 100px;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-bottom: 100px;
+	background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-image img {
+	display: block;
+	margin: 0 auto;
+	max-width: 80%;
+	max-height: 80%;
+}
+
+.close-image {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #fff;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.close-image:hover {
+	cursor: pointer;
+}
+a{
+	cursor: pointer;
 }

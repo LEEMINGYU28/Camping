@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.util.StringUtils;
 
+import com.java4.camping.admin.domain.Admin;
+import com.java4.camping.notice.domain.Notice;
 import com.java4.camping.review.domain.Review;
 import com.java4.camping.review.service.ReviewService;
 import com.java4.camping.user.dao.UserDAO;
@@ -33,12 +35,12 @@ public class ReviewController {
 	@Autowired
 	private UserDAO userDAO;
 
-	@RequestMapping(value = "/reviewList", method = RequestMethod.GET)
-	public String ReviewList(Model model) {
-		List<Review> reviews = reviewService.getAllReview();
-		model.addAttribute("reviews", reviews);
-		return "board/reviewList";
-	}
+//	@RequestMapping(value = "/review", method = RequestMethod.GET)
+//	public String ReviewList(Model model) {
+//		List<Review> reviews = reviewService.getAllReview();
+//		model.addAttribute("reviews", reviews);
+//		return "board/review";
+//	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String viewReview(Model model, @PathVariable("id") int id) {
@@ -53,11 +55,11 @@ public class ReviewController {
 	}
 
 	@Autowired
-	private ServletContext servletContext; // 서블릿 컨텍스트 객체를 주입합니다.
+	private ServletContext servletContext;
 
 	@RequestMapping(value = "/reviewCreate", method = RequestMethod.POST)
-	public String createReview(@RequestParam("imageFile") MultipartFile imageFile,
-			@RequestParam Map<String, String> map, HttpSession session) {
+	public String createReview(@RequestParam(value = "imageFile", required = false) MultipartFile imageFile,
+			@RequestParam("title") String title, @RequestParam("content") String content, HttpSession session) {
 
 		System.out.println("createReview 메서드 호출");
 
@@ -66,50 +68,49 @@ public class ReviewController {
 		if (userId == null) {
 			return "redirect:/review";
 		}
-
+		String newFilename = "";
 		// 이미지 파일 처리
-		if (!imageFile.isEmpty()) {
+		if (imageFile != null && !imageFile.isEmpty()) {
 			try {
-				// 이미지 파일을 저장할 경로 설정 (경로를 적절하게 변경하세요)
-				String uploadDirectory = "C:\\Users\\KGA\\git\\img";
+				// 이미지 파일을 저장할 경로 설정
+				String uploadDirectory = "C:\\Users\\KGA\\git\\Camping\\Camping\\src\\main\\webapp\\resources\\uploadimg";
 				System.out.println("uploadDirectory = " + uploadDirectory);
-				// 업로드 파일명 생성 (중복을 방지하기 위해 파일명을 변경)
+				// 업로드 파일명 생성
 				String originalFilename = imageFile.getOriginalFilename();
 				System.out.println("originalFilename = " + originalFilename);
-				String newFilename = StringUtils.cleanPath(originalFilename); // 예: "image.jpg"
+				newFilename = StringUtils.cleanPath(originalFilename);
 				System.out.println("newFilename = " + newFilename);
-				String fileExtension = StringUtils.getFilenameExtension(newFilename); // 파일 확장자
+				String fileExtension = StringUtils.getFilenameExtension(newFilename);
 				System.out.println("fileExtension = " + fileExtension);
 				if (fileExtension.isEmpty()) {
-					// 파일 확장자를 얻을 수 없을 때 예외 처리
-					// 다른 처리를 하거나 에러 메시지를 반환하세요.
+
 					System.out.println("이미지 업로드 실패");
 				}
 
-				// 새로운 파일명 생성 (고유성을 보장하도록 변경)
+				// 새로운 파일명 생성
 				newFilename = System.currentTimeMillis() + "." + fileExtension; // 예: "1605855612356.jpg"
 
-				// 이미지 파일을 서버에 저장
+				// 이미지 파일 저장
 				String filePath = uploadDirectory + File.separator + newFilename;
 				Files.copy(imageFile.getInputStream(), Paths.get(filePath), StandardCopyOption.REPLACE_EXISTING);
-
-				// 리뷰 작성
-				User user = userDAO.getName(userId);
-				System.out.println("userId1 =" + userId);
-				if (user != null) {
-					String title = map.get("title");
-					System.out.println("title =" + title);
-					String content = map.get("content");
-					System.out.println("content =" + content);
-					Review review = new Review(user, title, content);
-					review.setImageFilename(newFilename); // 이미지 파일명을 리뷰에 저장
-					reviewService.addReview(review, review.getUserId());
-					System.out.println("작성 성공");
-				}
 			} catch (IOException e) {
 				e.printStackTrace();
 				// 에러 처리
 			}
+		}
+
+		// 리뷰 작성
+		User user = userDAO.getName(userId);
+		System.out.println("userId1 =" + userId);
+		if (user != null) {
+
+			System.out.println("title =" + title);
+
+			System.out.println("content =" + content);
+			Review review = new Review(user, title, content);
+			review.setImageFilename(newFilename); // 이미지 파일명을 리뷰에 저장
+			reviewService.addReview(review, review.getUserId());
+			System.out.println("작성 성공");
 		}
 
 		return "redirect:/review";
@@ -157,5 +158,48 @@ public class ReviewController {
 			reviewService.deleteReview(id);
 			return "redirect:/review";
 		}
+	}
+
+	@RequestMapping(value = "/review", method = RequestMethod.GET)
+	public String listReviews(Model model,
+			@RequestParam(value = "page", required = false, defaultValue = "1") Integer page) {
+		int totalreviews = reviewService.getTotalReview();
+		int itemsPerPage = 6;
+		int totalPages = (int) Math.ceil((double) totalreviews / itemsPerPage);
+
+		List<Review> reviews = reviewService.getReviewInRange(page, itemsPerPage);
+
+		for (Review review : reviews) {
+			int userId = review.getUserId();
+			User user = userDAO.get(userId);
+			review.setUser(user);
+		}
+
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
+
+		return "board/review";
+	}
+
+	@RequestMapping(value = "/review/{page}", method = RequestMethod.GET)
+	public String reviewListByPage(Model model, @PathVariable("page") int page) {
+		int totalNotices = reviewService.getTotalReview();
+		int itemsPerPage = 6;
+		int totalPages = (int) Math.ceil((double) totalNotices / itemsPerPage);
+
+		List<Review> reviews = reviewService.getReviewInRange(page, itemsPerPage);
+
+		for (Review review : reviews) {
+			int userId = review.getUserId();
+			User user = userDAO.get(userId);
+			review.setUser(user);
+		}
+
+		model.addAttribute("reviews", reviews);
+		model.addAttribute("totalPages", totalPages);
+		model.addAttribute("currentPage", page);
+
+		return "board/review";
 	}
 }

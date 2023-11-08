@@ -9,13 +9,12 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항</title>
-<<<<<<< Upstream, based on develop
+
 <link href="<%= contextPath %>/resources/styles/board/announcement.css" rel="stylesheet" />
-=======
-<link href="resources/styles/board/announcement.css" rel="stylesheet" />
+
 <link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
 <link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
->>>>>>> 15e776a  feat : favicon, mainpage이미지 클릭시 모션 추가
+
 
 
 <script>
