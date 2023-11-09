@@ -24,7 +24,7 @@
 
 			<hr>
 
-			<button class='write-4' type="submit">올리기</button>
+			<button class='write-4' type="submit">글쓰기</button>
 		</form>
 
 		<form action="/camping/review">

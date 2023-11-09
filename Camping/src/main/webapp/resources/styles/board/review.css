@@ -185,7 +185,8 @@ section.notice {
 	margin: 10% auto;
 	padding: 20px;
 	border: 1px solid #888;
-	width: 80%;
+	width: 70%;
+	height: 50%;
 }
 
 .close {
@@ -195,37 +196,63 @@ section.notice {
 	padding: 10px;
 	cursor: pointer;
 }
-/* 모달 이미지 확대 스타일 */
-.modal-image {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	padding-top: 100px;
-	padding-left: 100px;
-	padding-right: 100px;
-	padding-bottom: 100px;
-	background-color: rgba(0, 0, 0, 0.9);
+
+img {
+	width: 300px;
+	height: 300px;
 }
 
-.modal-image img {
-	display: block;
-	margin: 0 auto;
-	max-width: 80%;
-	max-height: 80%;
+.create_btn {
+	background-color: navy;
+	border-radius: 8px;
+	padding: 13px 20px;
+	color: white;
+	transition: background-color 0.3s ease;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	left: 754px;
 }
 
-.close-image {
+.arrow-prev, .arrow-next {
+	position: relative;
+	float: left;
+	border: 1px solid #000;
+	width: 50px;
+	height: 50px;
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.arrow-prev {
+	left: 700px;
+	top: 300px;
+}
+
+.arrow-next {
+	left: 902px;
+}
+
+.arrow-prev::after {
 	position: absolute;
-	top: 15px;
-	right: 35px;
-	color: #fff;
-	font-size: 30px;
-	font-weight: bold;
+	left: 19px;
+	top: 17px;
+	content: '';
+	width: 20px; /* 사이즈 */
+	height: 20px; /* 사이즈 */
+	border-top: 5px solid #000; /* 선 두께 */
+	border-right: 5px solid #000; /* 선 두께 */
+	transform: rotate(225deg); /* 각도 */
 }
 
-.close-image:hover {
-	cursor: pointer;
-}
-a{
-	cursor: pointer;
+.arrow-next::after {
+	position: absolute;
+	left: 10px;
+	top: 17px;
+	content: '';
+	width: 20px; /* 사이즈 */
+	height: 20px; /* 사이즈 */
+	border-top: 5px solid #000; /* 선 두께 */
+	border-right: 5px solid #000; /* 선 두께 */
+	transform: rotate(45deg); /* 각도 */
 }
