@@ -37,7 +37,14 @@ public class ReviewService {
 	}
 
 	public Review getReviewById(int id) {
-		return reviewDAO.get(id);
+		Review review = reviewDAO.get(id);
+
+		if (review == null) {
+			// 결과가 없는 경우의 처리
+			// 예를 들어, null을 반환하거나 예외를 throw
+		}
+
+		return review;
 	}
 
 	public void addReview(Review review, int userId) {
@@ -51,10 +58,12 @@ public class ReviewService {
 	public void deleteReview(int id) {
 		reviewDAO.delete(id);
 	}
-    public List<Review> getReviewInRange(int currentPage, int itemsPerPage) {
-        return reviewDAO.getReviewInRange(currentPage, itemsPerPage);
-    }
-    public int getTotalReview() {
-        return reviewDAO.getTotalReviewCount();
-    }
+
+	public List<Review> getReviewInRange(int currentPage, int itemsPerPage) {
+		return reviewDAO.getReviewInRange(currentPage, itemsPerPage);
+	}
+
+	public int getTotalReview() {
+		return reviewDAO.getTotalReviewCount();
+	}
 }

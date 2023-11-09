@@ -13,11 +13,13 @@ import java.nio.file.StandardCopyOption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.util.StringUtils;
 
 import com.java4.camping.admin.domain.Admin;
@@ -54,17 +56,12 @@ public class ReviewController {
 		return "board/reviewCreate";
 	}
 
-	@Autowired
-	private ServletContext servletContext;
-
 	@RequestMapping(value = "/reviewCreate", method = RequestMethod.POST)
 	public String createReview(@RequestParam(value = "imageFile", required = false) MultipartFile imageFile,
 			@RequestParam("title") String title, @RequestParam("content") String content, HttpSession session) {
 
-		System.out.println("createReview 메서드 호출");
-
 		String userId = (String) session.getAttribute("userId");
-		System.out.println("userId =" + userId);
+
 		if (userId == null) {
 			return "redirect:/review";
 		}
@@ -74,14 +71,14 @@ public class ReviewController {
 			try {
 				// 이미지 파일을 저장할 경로 설정
 				String uploadDirectory = "C:\\Users\\KGA\\git\\Camping\\Camping\\src\\main\\webapp\\resources\\uploadimg";
-				System.out.println("uploadDirectory = " + uploadDirectory);
+
 				// 업로드 파일명 생성
 				String originalFilename = imageFile.getOriginalFilename();
-				System.out.println("originalFilename = " + originalFilename);
+
 				newFilename = StringUtils.cleanPath(originalFilename);
-				System.out.println("newFilename = " + newFilename);
+
 				String fileExtension = StringUtils.getFilenameExtension(newFilename);
-				System.out.println("fileExtension = " + fileExtension);
+
 				if (fileExtension.isEmpty()) {
 
 					System.out.println("이미지 업로드 실패");
@@ -100,13 +97,9 @@ public class ReviewController {
 		}
 
 		// 리뷰 작성
-		User user = userDAO.getName(userId);
+		User user = userDAO.get(userId);
 		System.out.println("userId1 =" + userId);
 		if (user != null) {
-
-			System.out.println("title =" + title);
-
-			System.out.println("content =" + content);
 			Review review = new Review(user, title, content);
 			review.setImageFilename(newFilename); // 이미지 파일명을 리뷰에 저장
 			reviewService.addReview(review, review.getUserId());
@@ -116,30 +109,49 @@ public class ReviewController {
 		return "redirect:/review";
 	}
 
-	@RequestMapping(value = "/reviewEdit/{id}", method = RequestMethod.GET)
+//	@RequestMapping(value = "/reviewEdit", method = RequestMethod.GET)
+//	public String reviewEdit(Model model) {
+//		return "board/reviewEdit";
+//	}
+	
+//	@RequestMapping(value = "/review/{id}", method = RequestMethod.GET)
+//	public String reviewEditForm(Model model, @PathVariable("id") int id) {
+//		System.out.println("editForm 호출");
+//		Review review = reviewService.getReviewById(id);
+//		model.addAttribute("review", review);
+//		return "board/review";
+//	}
+	@RequestMapping(value = "/edit", method = RequestMethod.GET)
 	public String showEditForm(Model model, @PathVariable("id") int id) {
 		Review review = reviewService.getReviewById(id);
 		model.addAttribute("review", review);
-		return "board/reviewEdit";
+		return "board/review";
+	}
+	@RequestMapping(value = "/review/edit", method = RequestMethod.POST)
+	public String editReview(@ModelAttribute Review updatedReview, HttpSession session) {
+	    String userId = (String) session.getAttribute("userId");
+	    System.out.println("userid ="+userId);
+	    if (userId == null) {
+	        // 로그인되지 않은 경우의 처리
+	        return "redirect:/review";
+	    }
+
+	    Review existingReview = reviewService.getReviewById(updatedReview.getId());
+	    System.out.println("existingReview ="+existingReview);
+	    
+	    if (existingReview != null && userId.equals(existingReview.getUser().getUserId())) {
+	        // 권한이 있는 경우 리뷰를 업데이트합니다.
+	        existingReview.setTitle(updatedReview.getTitle());
+	        existingReview.setContent(updatedReview.getContent());
+	        reviewService.updateReview(existingReview);
+	    } else {
+	        // 권한이 없는 경우의 처리
+	        return "redirect:/review";
+	    }
+
+	    return "redirect:/board/review";
 	}
 
-	@RequestMapping(value = "/reviewEdit/{id}", method = RequestMethod.POST)
-	public String editReview(@PathVariable("id") int id, @RequestParam("title") String title,
-			@RequestParam("content") String content, HttpSession session) {
-		String userId = (String) session.getAttribute("userId");
-		if (userId == null) {
-
-			return "redirect:/review";
-		} else {
-			Review review = new Review();
-			review.setId(id);
-			review.setTitle(title);
-			review.setContent(content);
-			reviewService.updateReview(review);
-			return "redirect:/review";
-		}
-
-	}
 
 	@RequestMapping(value = "/reviewDelete/{id}", method = RequestMethod.GET)
 	public String showDeleteForm(Model model, @PathVariable("id") int id) {
@@ -202,4 +214,5 @@ public class ReviewController {
 
 		return "board/review";
 	}
+
 }

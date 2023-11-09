@@ -10,9 +10,11 @@
 <head>
 <meta charset="UTF-8">
 <title>이용후기</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript"
 	src="<%=contextPath%>/resources/script/review.js"></script>
-<link href="<%=contextPath%>/resources/styles/board/review.css" rel="stylesheet" />
+<link href="<%=contextPath%>/resources/styles/board/review.css"
+	rel="stylesheet" />
 <link rel="shortcut icon" href="resources/img/boards/favicon.ico"
 	type="image/x-icon">
 <link rel="icon" href="resources/img/boards/favicon.ico"
@@ -67,13 +69,14 @@
 					<div class="container">
 						<table class="board-table">
 							<c:if test="${currentPage > 1}">
-								<a href="<c:url value='/review/${currentPage - 1}' />">이전
-									페이지</a>
+								<a href="<c:url value='/review/${currentPage - 1}' />"><span
+									class="arrow-prev"> </span></a>
 							</c:if>
 							<thead>
 								<tr>
 									<th scope="col" class="th-num">번호</th>
 									<th scope="col" class="th-title">제목</th>
+									<th scope="col" class="th-name">작성일</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -81,16 +84,25 @@
 									<tr>
 										<td>${review.id}</td>
 										<td><a href="javascript:void(0);"
-											onclick="openModal('${review.title}', '${review.content}', '${pageContext.request.contextPath}/resources/uploadimg/${review.imageFilename}')">
-												${review.title} </a></td>
+											onclick="openModal (
+											'${review.title}',
+											'${review.content}',
+											'${pageContext.request.contextPath}/resources/uploadimg/${review.imageFilename}',
+											${review.id})"
+											data-review-id="${review.id}">
+											${review.title}
+											</a>
+											</td>
+										<td>${review.createdAt}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-						<a href="<%=contextPath%>/reviewCreate">글쓰기</a>
+						<a class="create_btn" type="button"
+							href="<%=contextPath%>/reviewCreate">글쓰기</a>
 						<c:if test="${currentPage < totalPages}">
-							<a href="<c:url value='/review/${currentPage + 1}' />">다음
-								페이지</a>
+							<a href="<c:url value='/review/${currentPage + 1}' />"><span
+								class="arrow-next" /></span></a>
 						</c:if>
 					</div>
 				</div>
@@ -111,13 +123,26 @@
 			<p id="modalContent"></p>
 			<img id="modalImage" src="" alt="Review Image"
 				onclick="enlargeImage()">
+
+			<div class="edit" style="display: none;">
+				<form action="<%=contextPath%>/review/edit" method="POST">
+					<h1>이용후기 수정</h1>
+					<label for="title">제목:</label> <input type="text" id="title"
+						name="title" value="" />
+					<!-- 수정된 리뷰 제목 표시 -->
+					<br /> <label for="content">내용:</label>
+					<textarea id="content" name="content"></textarea>
+					<!-- 수정된 리뷰 내용 표시 -->
+					<br /> <input type="submit" value="저장" />
+					<!-- 수정 저장 버튼 -->
+				</form>
+			</div>
+
+			<a type="button" onclick="openEditForm()" style="cursor: pointer;">수정</a>
+			<!-- 수정 양식 표시 버튼 -->
+			<a href="delete/${review.id}">삭제</a>
 		</div>
 	</div>
 
-	<div id="imageModal" class="modal-image">
-		<span class="close-image" id="imageModalClose"
-			onclick="closeEnlargedImage()">&times;</span> <img
-			id="enlargedModalImage" src="" alt="Enlarged Image">
-	</div>
 </body>
 </html>
