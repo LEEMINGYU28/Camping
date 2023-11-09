@@ -1,6 +1,14 @@
 @charset "UTF-8";
+@charset "UTF-8";
 
-.announcementImg {
+header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+}
+
+.reviewImg {
 	background-image: url("../../img/boards/announcement.jpg");
 	width: 100%;
 	height: 35vh;
@@ -20,12 +28,12 @@
 	display: flex;
 }
 
-.announcementImg h1 {
+.reviewImg h1 {
 	font-size: 50px;
 	color: white;
 }
 
-.announcementNotice h1 {
+.reviewNotice h1 {
 	padding-top: 40px;
 	justify-content: center;
 	align-items: center;
@@ -46,39 +54,35 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: 5px;
+	margin: 5px; /* 요소 간의 간격 설정 */
 	cursor: pointer;
 	border-radius: 5px;
 	transition: all 0.3s ease;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#reviewBox {
+#noticeBox {
 	background-color: white;
 	color: black;
-	margin-right : 20%;
+	margin-left: 20%;
 }
 
-#reviewBox:hover {
+#noticeBox:hover {
 	background-color: #dadada;
 	color: black;
 }
 
-#noticeBox {
+#reviewBox {
 	background-color: navy;
 	color: white;
-	margin-left:20%;
+	margin-right: 20%;
 }
 
-#noticeBox:hover {
+#reviewBox:hover {
 	background-color: #001f3f;
 	color: white;
 }
 
-.anouncementTextContainer {
-	width: 100%;
-	height: 400px;
-}
 .container h3 {
 	text-align: center;
 	font-size: 1.75rem;
@@ -185,3 +189,4 @@ section.notice {
 	padding: 10px;
 	cursor: pointer;
 }
+

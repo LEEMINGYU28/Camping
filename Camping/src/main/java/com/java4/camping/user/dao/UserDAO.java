@@ -22,9 +22,14 @@ public class UserDAO {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 
-	private RowMapper<User> mapper=new RowMapper<User>(){@Override public User mapRow(ResultSet rs,int rowNum)throws SQLException{
-	// TODO Auto-generated method stub
-	return new User(rs.getInt("id"),rs.getString("name"),rs.getString("user_id"),rs.getString("user_pw"),rs.getDate("created_at"));}};
+	private RowMapper<User> mapper = new RowMapper<User>() {
+		@Override
+		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+			// TODO Auto-generated method stub
+			return new User(rs.getInt("id"), rs.getString("name"), rs.getString("user_id"), rs.getString("user_pw"),
+					rs.getDate("created_at"));
+		}
+	};
 
 	public void add(User user) {
 		jdbcTemplate.update("insert into users (\"name\", \"user_id\", \"user_pw\") values (?, ?, ?)", user.getName(),
@@ -36,14 +41,11 @@ public class UserDAO {
 	}
 
 	public User get(String userId) {
-		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", 
-				new Object[] { userId },mapper);
+		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", new Object[] { userId }, mapper);
 	}
 
 	public User getName(String name) {
-		return jdbcTemplate.queryForObject("select * from users where \"name\"=?", 
-				new Object[] { name },
-				mapper);
+		return jdbcTemplate.queryForObject("select * from users where \"name\"=?", new Object[] { name }, mapper);
 	}
 
 	public List<User> getAll() {
@@ -53,4 +55,8 @@ public class UserDAO {
 	public void deleteAll() {
 		jdbcTemplate.update("delete from users");
 	}
+
+    public void delete(int id) {
+        jdbcTemplate.update("delete from users where \"id\"=?", id);
+    }
 }

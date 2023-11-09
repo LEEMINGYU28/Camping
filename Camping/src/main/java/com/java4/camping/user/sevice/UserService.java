@@ -63,4 +63,8 @@ public class UserService {
 	public User getUser(String userId) {
 		return userDAO.get(userId);
 	}
+
+	public void withdrawUserById(int id) {
+		userDAO.delete(id);
+	}
 }
