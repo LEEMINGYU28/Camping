@@ -1,0 +1,18 @@
+package com.java4.camping.deepReserve;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+
+@Controller
+public class DeepReserveController {
+	
+	@RequestMapping(value = "/deepReserve", method = RequestMethod.GET)
+
+	public String deepReserve() {
+
+		return "/payment/deepReserve";
+	}
+
+}

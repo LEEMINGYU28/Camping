@@ -34,27 +34,29 @@ document.addEventListener("DOMContentLoaded", function() {
 		}
 	});
 
+	function updateNextButtonState() {
+		let isChecked = agreeCheckbox.checked && agreebox.checked;
+		agreeButton.disabled = !isChecked;
+	}
+	
 	checkboxes.forEach(function(checkbox) {
-		agreeButton.disabled = true;
 		checkbox.addEventListener("change", function() {
-			var allChecked = true;
-			checkboxes.forEach(function(cb) {
-				if (cb !== allAgreeCheckbox && !cb.checked) {
-					allChecked = false;
-				}
-			});
-
-			if (allChecked) {
-				agreeButton.disabled = false;
-			} else {
-				agreeButton.disabled = true;
-			}
+			updateNextButtonState();
 		});
 	});
+
+	agreeCheckbox.addEventListener("change", function() {
+		updateNextButtonState();
+	});
+
+	agreebox.addEventListener("change", function() {
+		updateNextButtonState();
+	});
+
 	allAgreeCheckbox.addEventListener("change", function() {
-		var isChecked = allAgreeCheckbox.checked;
+		let isChecked = allAgreeCheckbox.checked;
 		agreeCheckbox.checked = isChecked;
 		agreebox.checked = isChecked;
-		agreeButton.disabled = !isChecked;
+		updateNextButtonState();
 	});
 });

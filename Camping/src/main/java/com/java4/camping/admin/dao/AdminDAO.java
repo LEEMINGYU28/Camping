@@ -26,30 +26,31 @@ public class AdminDAO {
 		public Admin mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
 			return new Admin(
-					rs.getInt("id"), 
-					rs.getString("name"), 
-					rs.getString("admin_id"), 
+					rs.getInt("id"),
+					rs.getString("name"),
+					rs.getString("admin_id"),
 					rs.getString("admin_pw"),
 					rs.getDate("created_at"));
 		}
 	};
+
 	public void add(Admin admin) {
-		jdbcTemplate.update("insert into admins (\"name\", \"admin_id\", \"admin_pw\") values (?, ?, ?)", admin.getName(),
-				admin.getAdminId(), admin.getAdminPw());
+		jdbcTemplate.update("insert into admins (\"name\", \"admin_id\", \"admin_pw\") values (?, ?, ?)",
+				admin.getName(), admin.getAdminId(), admin.getAdminPw());
+		System.out.println(admin.getAdminId());
 	}
+
 	public Admin get(int id) {
-		return jdbcTemplate.queryForObject("select * from admins where \"id\"=?", 
-				new Object[] { id },mapper);
+		return jdbcTemplate.queryForObject("select * from admins where \"id\"=?", new Object[] { id }, mapper);
 	}
 
 	public Admin get(String adminId) {
-		return jdbcTemplate.queryForObject("select * from admins where \"admin_id\"=?", 
-				new Object[] { adminId },
+		return jdbcTemplate.queryForObject("select * from admins where \"admin_id\"=?", new Object[] { adminId },
 				mapper);
 	}
-	
+
 	public void deleteAll() {
 		jdbcTemplate.update("delete from admins");
 	}
-	
+
 }
