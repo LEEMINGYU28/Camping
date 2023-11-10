@@ -7,6 +7,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -42,14 +43,12 @@ public class ReviewDAO {
 	}
 
 	public Review get(int id) {
-		List<Review> reviews = jdbcTemplate.query("select * from review where \"id\"=?", new Object[] { id }, mapper);
-
-		if (reviews.isEmpty()) {
-			// 결과가 없으면 null 반환 또는 예외 처리를 수행
+		try {
+			return jdbcTemplate.queryForObject("select * from review where \"id\"=?", new Object[] { id }, mapper);
+		} catch (EmptyResultDataAccessException e) {
+			System.out.println("No review found for id: " + id);
 			return null;
 		}
-
-		return reviews.get(0);
 	}
 
 	public Review get(String userId) {

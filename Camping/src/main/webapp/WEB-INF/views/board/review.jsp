@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <title>이용후기</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script type="text/javascript"
 	src="<%=contextPath%>/resources/script/review.js"></script>
 <link href="<%=contextPath%>/resources/styles/board/review.css"
@@ -34,6 +35,7 @@
 	function goToPage(pageURL) {
 		window.location.href = pageURL;
 	}
+	
 </script>
 </head>
 <body>
@@ -89,10 +91,7 @@
 											'${review.content}',
 											'${pageContext.request.contextPath}/resources/uploadimg/${review.imageFilename}',
 											${review.id})"
-											data-review-id="${review.id}">
-											${review.title}
-											</a>
-											</td>
+											data-review-id="${review.id}"> ${review.title} </a></td>
 										<td>${review.createdAt}</td>
 									</tr>
 								</c:forEach>
@@ -116,31 +115,21 @@
 			<jsp:param name="pageName" value="footer" />
 		</jsp:include>
 	</footer>
-	<div id="reviewModal" class="modal">
+	<script>
+    var contextPath = "<%=request.getContextPath()%>";
+    
+    
+</script>
+	<div id="reviewModal" class="modal" style="display: none;">
 		<div class="modal-content">
 			<span class="close" id="modalClose" onclick="closeModal()">&times;</span>
 			<h2 id="modalTitle"></h2>
 			<p id="modalContent"></p>
-			<img id="modalImage" src="" alt="Review Image"
-				onclick="enlargeImage()">
 
-			<div class="edit" style="display: none;">
-				<form action="<%=contextPath%>/review/edit" method="POST">
-					<h1>이용후기 수정</h1>
-					<label for="title">제목:</label> <input type="text" id="title"
-						name="title" value="" />
-					<!-- 수정된 리뷰 제목 표시 -->
-					<br /> <label for="content">내용:</label>
-					<textarea id="content" name="content"></textarea>
-					<!-- 수정된 리뷰 내용 표시 -->
-					<br /> <input type="submit" value="저장" />
-					<!-- 수정 저장 버튼 -->
-				</form>
-			</div>
-
-			<a type="button" onclick="openEditForm()" style="cursor: pointer;">수정</a>
-			<!-- 수정 양식 표시 버튼 -->
-			<a href="delete/${review.id}">삭제</a>
+			<img id="modalImage" src="" onclick=""> <a
+				href="<%=contextPath%>/reviewedit/${review.id}" id="editLink"
+				onclick="openEditModal()">수정</a> <a href="#" id="delete"
+				onclick="deleteReview()" data-review-id="">삭제</a>
 		</div>
 	</div>
 

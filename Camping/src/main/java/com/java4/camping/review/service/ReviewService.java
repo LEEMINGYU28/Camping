@@ -3,9 +3,9 @@ package com.java4.camping.review.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
-import com.java4.camping.notice.domain.Notice;
 import com.java4.camping.review.dao.ReviewDAO;
 import com.java4.camping.review.domain.Review;
 import com.java4.camping.user.dao.UserDAO;
@@ -37,14 +37,13 @@ public class ReviewService {
 	}
 
 	public Review getReviewById(int id) {
-		Review review = reviewDAO.get(id);
-
-		if (review == null) {
-			// 결과가 없는 경우의 처리
-			// 예를 들어, null을 반환하거나 예외를 throw
+		try {
+			return reviewDAO.get(id);
+		} catch (EmptyResultDataAccessException e) {
+			// 예외 처리: 결과가 없을 때
+			System.out.println("No review found for id: " + id);
+			return null; // 또는 예외 처리에 맞게 다른 동작 수행
 		}
-
-		return review;
 	}
 
 	public void addReview(Review review, int userId) {
@@ -66,4 +65,6 @@ public class ReviewService {
 	public int getTotalReview() {
 		return reviewDAO.getTotalReviewCount();
 	}
+	
+	
 }

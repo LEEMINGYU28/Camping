@@ -256,3 +256,24 @@ img {
 	border-right: 5px solid #000; /* 선 두께 */
 	transform: rotate(45deg); /* 각도 */
 }
+
+#editLink, #delete{
+	margin-top: 10px;
+	width: 95px;
+	height: 30px;
+	border: none;
+	background-color: #e91e63eb;
+	Cursor: pointer;
+	padding: 10px 20px;
+	color: white;
+	border-radius: 11px;
+	transition: background-color 0.3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#delete{
+	position: relative;
+	left: 100px;
+	top: -39px;
+}
