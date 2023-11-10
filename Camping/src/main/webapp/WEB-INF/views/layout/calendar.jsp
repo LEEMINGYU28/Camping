@@ -103,8 +103,36 @@
 											.contains("selectable")) {
 								var selectedDate = e.target.textContent;
 								var selectedMonth = currentMonth + 1;
+								var selectedYear = currentYear;
+
+								// 예약 정보를 가져오기 위한 날짜 포맷 생성
+								var selectedDateFormatted = selectedYear + '-'
+										+ (selectedMonth < 10 ? '0' : '')
+										+ selectedMonth + '-'
+										+ (selectedDate < 10 ? '0' : '')
+										+ selectedDate;
+
+								// Ajax 요청
+								$
+										.ajax({
+											url : '/reservation/info?date='
+													+ selectedDateFormatted,
+											method : 'GET',
+											success : function(data) {
+												// 받아온 데이터를 기반으로 UI 업데이트
+												updateReservationInfoUI(data);
+											},
+											error : function(error) {
+												console
+														.error(
+																"Error while fetching reservation info:",
+																error);
+											}
+										});
+
+								// 선택한 날짜 표시
 								document.getElementById("selected-date").textContent = "선택한 날짜: "
-										+ currentYear
+										+ selectedYear
 										+ "년 "
 										+ (selectedMonth < 10 ? "0"
 												+ selectedMonth : selectedMonth)
@@ -114,6 +142,21 @@
 										+ "일";
 							}
 						});
+
+		// 예약 정보를 업데이트하는 함수
+		function updateReservationInfoUI(reservationInfo) {
+			var reservationInfoContainer = document
+					.getElementById("reservation-info-container");
+
+			// 예약 가능 여부에 따라 UI 업데이트
+			if (reservationInfo.isAvailable) {
+				reservationInfoContainer.innerHTML = 'Hotel: '
+						+ reservationInfo.hotelName + '<br>Price: $'
+						+ reservationInfo.price;
+			} else {
+				reservationInfoContainer.innerHTML = 'This date is not available for reservation.';
+			}
+		}
 	</script>
 </body>
 </html>
