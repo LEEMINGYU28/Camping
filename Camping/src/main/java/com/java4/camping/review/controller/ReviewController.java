@@ -109,67 +109,47 @@ public class ReviewController {
 		return "redirect:/review";
 	}
 
-//	@RequestMapping(value = "/reviewEdit", method = RequestMethod.GET)
-//	public String reviewEdit(Model model) {
-//		return "board/reviewEdit";
-//	}
-	
-//	@RequestMapping(value = "/review/{id}", method = RequestMethod.GET)
-//	public String reviewEditForm(Model model, @PathVariable("id") int id) {
-//		System.out.println("editForm 호출");
-//		Review review = reviewService.getReviewById(id);
-//		model.addAttribute("review", review);
-//		return "board/review";
-//	}
-	@RequestMapping(value = "/edit", method = RequestMethod.GET)
+	@RequestMapping(value = "/reviewedit/{id}", method = RequestMethod.GET)
 	public String showEditForm(Model model, @PathVariable("id") int id) {
 		Review review = reviewService.getReviewById(id);
 		model.addAttribute("review", review);
-		return "board/review";
-	}
-	@RequestMapping(value = "/review/edit", method = RequestMethod.POST)
-	public String editReview(@ModelAttribute Review updatedReview, HttpSession session) {
-	    String userId = (String) session.getAttribute("userId");
-	    System.out.println("userid ="+userId);
-	    if (userId == null) {
-	        // 로그인되지 않은 경우의 처리
-	        return "redirect:/review";
-	    }
-
-	    Review existingReview = reviewService.getReviewById(updatedReview.getId());
-	    System.out.println("existingReview ="+existingReview);
-	    
-	    if (existingReview != null && userId.equals(existingReview.getUser().getUserId())) {
-	        // 권한이 있는 경우 리뷰를 업데이트합니다.
-	        existingReview.setTitle(updatedReview.getTitle());
-	        existingReview.setContent(updatedReview.getContent());
-	        reviewService.updateReview(existingReview);
-	    } else {
-	        // 권한이 없는 경우의 처리
-	        return "redirect:/review";
-	    }
-
-	    return "redirect:/board/review";
+		return "board/reviewEdit";
 	}
 
+	@RequestMapping(value = "/reviewedit/{id}", method = RequestMethod.POST)
+	public String editNotice(@PathVariable("id") int id, @RequestParam("title") String title,
+			@RequestParam("content") String content, HttpSession session) {
+		String userId = (String) session.getAttribute("userId");
+		if (userId == null) {
 
-	@RequestMapping(value = "/reviewDelete/{id}", method = RequestMethod.GET)
+			return "redirect:/review";
+		} else {
+			Review review = new Review();
+			review.setId(id);
+			review.setTitle(title);
+			review.setContent(content);
+			reviewService.updateReview(review);
+			return "redirect:/review";
+		}
+
+	}
+
+	@RequestMapping(value = "/reviewdelete/{id}", method = RequestMethod.GET)
 	public String showDeleteForm(Model model, @PathVariable("id") int id) {
 		Review review = reviewService.getReviewById(id);
 		model.addAttribute("review", review);
 		return "board/reviewDelete";
 	}
 
-	@RequestMapping(value = "/reviewDelete/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "/reviewdelete/{id}", method = RequestMethod.POST)
 	public String deleteReview(@PathVariable("id") int id, HttpSession session) {
-		String userId = (String) session.getAttribute("userId");
-		if (userId == null) {
-
-			return "redirect:/review";
-		} else {
-			reviewService.deleteReview(id);
-			return "redirect:/review";
-		}
+	    String userId = (String) session.getAttribute("userId");
+	    if (userId == null) {
+	        return "redirect:/review";
+	    } else {
+	        reviewService.deleteReview(id);
+	        return "redirect:/review";
+	    }
 	}
 
 	@RequestMapping(value = "/review", method = RequestMethod.GET)
