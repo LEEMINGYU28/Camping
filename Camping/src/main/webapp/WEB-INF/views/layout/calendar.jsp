@@ -1,8 +1,24 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- jQuery 라이브러리 추가 -->
+
+<link href="resources/styles/layout/calendar.css" rel="stylesheet" />
+<link href="<%=contextPath%>/resources/styles/main.css" rel="stylesheet" />
+<link rel="shortcut icon"
+	href="<%=contextPath%>/resources/img/boards/favicon.ico"
+	type="image/x-icon">
+<link rel="icon"
+	href="<%=contextPath%>/resources/img/boards/favicon.ico"
+	type="image/x-icon">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link href="resources/styles/layout/calendar.css" rel="stylesheet" />
 </head>
 <body>
@@ -115,17 +131,17 @@
 								// Ajax 요청
 								$
 										.ajax({
-											url : '/reservation/info?date='
+											url : '/room/available?date='
 													+ selectedDateFormatted,
 											method : 'GET',
 											success : function(data) {
-												// 받아온 데이터를 기반으로 UI 업데이트
-												updateReservationInfoUI(data);
+												// 가져온 데이터를 기반으로 UI 업데이트
+												updateRoomListUI(data);
 											},
 											error : function(error) {
 												console
 														.error(
-																"Error while fetching reservation info:",
+																"Error while fetching available rooms:",
 																error);
 											}
 										});

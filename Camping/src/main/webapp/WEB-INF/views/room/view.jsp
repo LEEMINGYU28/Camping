@@ -13,12 +13,14 @@
             <th>Name</th>
             <th>Description</th>
             <th>Price</th>
+            <th>예약상태</th>
         </tr>
         <tr>
             <td>${room.id}</td>
             <td>${room.roomName}</td>
             <td>${room.roomDescription}</td>
             <td>${room.roomPrice}</td>
+            <td>${room.available ? '가능' : '불가능'}</td>
         </tr>
     </table>
     <br>

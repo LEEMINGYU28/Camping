@@ -5,6 +5,8 @@ import com.java4.camping.room.domain.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,5 +26,7 @@ public class RoomService {
     public Room getRoomById(int id) {
         return roomDAO.get(id);
     }
-
+    public List<Room> getAvailableRooms(Date checkInDate, Date checkOutDate) {
+        return roomDAO.getAvailableRooms(checkInDate, checkOutDate);
+    }
 }

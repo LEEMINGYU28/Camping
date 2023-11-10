@@ -5,7 +5,17 @@ public class Room {
     private String roomName;
     private String roomDescription;
     private int roomPrice;
-    
+    private boolean available;
+
+    // 다른 속성들에 대한 게터와 세터
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
     public Room() {
     }
     public Room(int id, String roomName, String roomDescription, int roomPrice) {
