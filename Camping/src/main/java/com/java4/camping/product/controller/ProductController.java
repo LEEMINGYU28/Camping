@@ -34,7 +34,6 @@ public class ProductController {
 
 	@RequestMapping(value = "/availableProduct", method = RequestMethod.GET)
 	public String listAvailableProducts(Model model) {
-		System.out.println("메서드호출");
 		model.addAttribute("products", productService.getAvailableProducts());
 		return "payment/reserve";
 	}
