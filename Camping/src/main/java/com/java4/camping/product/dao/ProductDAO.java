@@ -1,6 +1,7 @@
 package com.java4.camping.product.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -38,10 +39,15 @@ public class ProductDAO {
 		return jdbcTemplate.query("SELECT * FROM products", mapper);
 
 	}
-	
+
 	
 	public List<Product> getAvailableProducts() {
         return jdbcTemplate.query("SELECT * FROM products WHERE available = 0", mapper);
+    }
+	
+	public Product getProductById(int productId) {
+        String sql = "SELECT * FROM products WHERE id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[] { productId }, mapper);
     }
 }
 

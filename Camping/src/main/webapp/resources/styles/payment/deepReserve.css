@@ -33,11 +33,13 @@
 	background-color: gray;
 	border: 1px solid black;
 }
-
 .detail {
-	margin-top: 10px;
-	width: 100%;
-	height: 200px;
-	background-color: #f5d682;
-	border: 1px solid black;
+    margin-top: 10px;
+    width: 100%;
+    height: 200px;
+    text-align: center; /* 추가된 부분 */
+}
+
+.detail button {
+    margin-top: 20px; /* 버튼과 위쪽 여백 조절을 위해 추가된 부분 */
 }
