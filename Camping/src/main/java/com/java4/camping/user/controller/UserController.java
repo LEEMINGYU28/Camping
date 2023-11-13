@@ -69,7 +69,6 @@ public class UserController {
 		session.setAttribute("userId", null);
 		return "redirect:/main";
 	}
-
 	@RequestMapping(value = "/withdraw/{userId}", method = RequestMethod.GET)
 	public String withdrawUser(@PathVariable String userId, HttpSession session) {
 		User user = userService.getUser(userId);

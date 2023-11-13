@@ -23,6 +23,7 @@ window.onload = function() {
 			}
 		});
 	});
+
 }
 
 function openModal(title, content, imageUrl, reviewId) {
@@ -41,10 +42,15 @@ function openModal(title, content, imageUrl, reviewId) {
 	modalImage.style.width = "300px";
 	modalImage.style.display = "block";
 	modalTitle.setAttribute("data-review-id", reviewId);
-	editLink.href = "/camping/reviewedit/" + reviewId;
 
+	if (editLink) {
+		editLink.href = "/camping/reviewedit/" + reviewId;
 
-	deleteLink.setAttribute('data-review-id', reviewId);
+	}
+
+	if (deleteLink) {
+		deleteLink.setAttribute('data-review-id', reviewId);
+	}
 
 
 	modal.style.display = "block";
@@ -53,7 +59,24 @@ function closeModal() {
 	var modal = document.getElementById("reviewModal");
 	modal.style.display = "none";
 }
+function openEditModal() {
 
+	var userIdFromSession;
+	var reviewModal = document.getElementById("reviewModal");
+	var userIdFromReview = reviewModal.getAttribute("data-review-userid");
+	var reviewId = reviewModal.getAttribute("data-review-id");
+
+	console.log("권한 확인 - 세션 ID:", userIdFromSession);
+	console.log("권한 확인 - 리뷰 작성자 ID:", userIdFromReview);
+
+	if (userIdFromSession === userIdFromReview) {
+		window.location.href = '<%=contextPath%>/reviewedit/' + reviewId;
+	} else {
+		alert("권한이 없습니다.");
+
+		window.location.href = '<%=contextPath%>/review';
+	}
+}
 
 function deleteReview() {
 	var reviewIdElement = document.getElementById('delete');

@@ -93,7 +93,7 @@
 		</div>
 	</nav>
 
-	<div id="modal" class="modal-overlay">
+	<div id="modal" class="modal-overlay" style="display: none;">
 		<div class="modal-window">
 			<div class="title">
 				<h2>로그인</h2>

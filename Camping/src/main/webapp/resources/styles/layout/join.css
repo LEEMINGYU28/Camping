@@ -26,12 +26,12 @@
 	border-radius: 10px;
 	border: 1px solid rgba(255, 255, 255, 0.18);
 	width: 300px;
-	height: 355px;
+	height: 510px;
 	min-height: 61%;
 	position: absolute;
 	padding: 10px;
 	left: 40%;
-	top: 20%;
+	top: 150px;
 }
 
 #joinModal .title {

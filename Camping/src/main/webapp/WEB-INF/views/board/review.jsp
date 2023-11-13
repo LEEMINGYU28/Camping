@@ -97,8 +97,21 @@
 								</c:forEach>
 							</tbody>
 						</table>
-						<a class="create_btn" type="button"
-							href="<%=contextPath%>/reviewCreate">글쓰기</a>
+						<script>
+                function checkLoginAndRedirect() {
+                    var isUserLoggedIn = ${not empty sessionScope.userId};
+                    if (isUserLoggedIn) {
+
+                        window.location.href = "<%=contextPath%>/reviewCreate";
+                    } else {
+                   
+                        alert("로그인이 필요합니다.");
+                    }
+                }
+            </script>
+						<a class="create_btn" type="button" href="javascript:void(0);"
+							onclick="checkLoginAndRedirect()">글쓰기</a>
+
 						<c:if test="${currentPage < totalPages}">
 							<a href="<c:url value='/review/${currentPage + 1}' />"><span
 								class="arrow-next" /></span></a>
@@ -117,18 +130,17 @@
 	</footer>
 	<script>
     var contextPath = "<%=request.getContextPath()%>";
-    
-    
-</script>
-	<div id="reviewModal" class="modal" style="display: none;">
+    var userIdFromSession = '<%=session.getAttribute("userId")%>';
+    </script>
+
+	<div id="reviewModal" class="modal" style="display: none;"data-review-userid="${review.userid}" data-review-id="${review.id}">
 		<div class="modal-content">
 			<span class="close" id="modalClose" onclick="closeModal()">&times;</span>
 			<h2 id="modalTitle"></h2>
 			<p id="modalContent"></p>
 
-			<img id="modalImage" src="" onclick=""> <a
-				href="<%=contextPath%>/reviewedit/${review.id}" id="editLink"
-				onclick="openEditModal()">수정</a> <a href="#" id="delete"
+			<img id="modalImage" src="" onclick="">
+			<a id="editLink" onclick="openEditModal()">수정</a> <a href="#" id="delete"
 				onclick="deleteReview()" data-review-id="">삭제</a>
 		</div>
 	</div>
