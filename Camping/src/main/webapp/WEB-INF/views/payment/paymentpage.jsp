@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link href="resources/styles/payment/paymentpage.css" rel="stylesheet" />
 <script type="text/javascript" src="resources/script/paymentpage.js"></script>
 <title>예약확인 페이지</title>

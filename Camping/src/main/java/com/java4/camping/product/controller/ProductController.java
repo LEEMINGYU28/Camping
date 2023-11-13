@@ -6,47 +6,43 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java4.camping.product.domain.Product;
 import com.java4.camping.product.service.ProductService;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 
 @Controller
 public class ProductController {
 
-	@Autowired
-	private ProductService productService;
+   @Autowired
+   private ProductService productService;
 
-	@RequestMapping(value = "/product", method = RequestMethod.GET)
-	public String listProducts(Model model) {
+   @RequestMapping(value = "/product", method = RequestMethod.GET)
+   public String listProducts(Model model) {
 
-		model.addAttribute("products", productService.getAll());
-		return "/payment/product";
-	}
+      model.addAttribute("products", productService.getAll());
+      return "/payment/product";
+   }
 
-	@RequestMapping(value = "/availableProduct", method = RequestMethod.GET)
-	public String listAvailableProducts(Model model) {
-		model.addAttribute("products", productService.getAvailableProducts());
-		return "payment/reserve";
-	}
+   @RequestMapping(value = "/availableProduct", method = RequestMethod.GET)
+   public String listAvailableProducts(Model model) {
+      System.out.println("메서드호출");
+      model.addAttribute("products", productService.getAvailableProducts());
+      return "payment/reserve";
+   }
 
-	@RequestMapping(value = "/deepReserve/{id}", method = RequestMethod.GET)
-	public String deepReserve(Model model,
-			@RequestParam(value = "id", required = false, defaultValue = "1") int productId) {
-		Product selectedProduct = productService.getProductById(productId);
-		List<Product> availableProducts = productService.getAvailableProducts();
+   @RequestMapping(value = "/deepReserve/{id}", method = RequestMethod.GET)
+   public String deepReserve(@PathVariable int id, Model model) {
+      Product selectedProduct = productService.getProductById(id);
+      List<Product> availableProducts = productService.getAvailableProducts();
 
-		model.addAttribute("selectedProduct", selectedProduct);
-		model.addAttribute("availableProducts", availableProducts);
+      model.addAttribute("selectedProduct", selectedProduct);
+      model.addAttribute("availableProducts", availableProducts);
 
-		return "/payment/deepReserve";
-	}
+      return "/payment/deepReserve";
+   }
 }
