@@ -45,6 +45,15 @@ public class ReviewService {
 			return null; // 또는 예외 처리에 맞게 다른 동작 수행
 		}
 	}
+	public Review getReviewByIds(String userId) {
+		try {
+			return reviewDAO.get(userId);
+		} catch (EmptyResultDataAccessException e) {
+			// 예외 처리: 결과가 없을 때
+			System.out.println("No review found for user_Id: " + userId);
+			return null; // 또는 예외 처리에 맞게 다른 동작 수행
+		}
+	}
 
 	public void addReview(Review review, int userId) {
 		reviewDAO.add(review);
