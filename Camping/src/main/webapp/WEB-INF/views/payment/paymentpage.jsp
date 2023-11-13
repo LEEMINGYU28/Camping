@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%String contextPath = request.getContextPath();%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,13 +36,14 @@
 				</div>
 				<div class="product">
 					<h6>예약 상품 정보</h6>
-					<div class="product_img">
-						<img src="">
-					</div>
 					<div class="product_info">
-						<div class="info_text1">예약숙소</div>
-						<div class="info_text2">일정</div>
-						<div class="info_text3">가격</div>
+						<c:if test="${not empty selectedProduct}">
+							<div>
+								<p>캠핑장 이름 : ${selectedProduct.name}</p>
+								<p>가격: ${selectedProduct.price}원</p>
+								<!-- Add more details as needed -->
+							</div>
+						</c:if>
 					</div>
 				</div>
 				<div class="order_info">
@@ -97,7 +100,7 @@
 			</jsp:include>
 		</footer>
 	</div>
-	
+
 	<script>
 		function goToSuccessReserve() {
 			window.location.href = 'successReserve';

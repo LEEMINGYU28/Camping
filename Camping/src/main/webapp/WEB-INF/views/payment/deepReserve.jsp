@@ -39,7 +39,7 @@
 			<div class="calendarContainer">
 				<c:if test="${not empty selectedProduct}">
 					<div>
-						<h3>Name: ${selectedProduct.name}</h3>
+						<h3>캠핑장 이름 : ${selectedProduct.name}</h3>
 						<h4>캠핑장 상세정보</h4>
 						<p>${selectedProduct.detail}</p>
 						<p>가격: ${selectedProduct.price}원</p>
@@ -52,7 +52,14 @@
 
 		<div class="detail">
 			<div>
-				<button onclick="goToSuccessReserve()">예약하기</button>
+				<c:choose>
+					<c:when test="${userName != null }">
+						<a href="<%= contextPath %>/paymentpage/${selectedProduct.id}"><button>예약하기</button></a>
+					</c:when>
+					<c:otherwise>
+						<a href="<%=contextPath%>/main"><button>로그인하러가기</button></a>
+					</c:otherwise>
+				</c:choose>
 			</div>
 		</div>
 
@@ -66,7 +73,7 @@
 
 	<script>
 		function goToSuccessReserve() {
-			window.location.href = '/camping/paymentpage';
+			window.location.href = '/camping/paymentpage/id';
 		}
 	</script>
 
