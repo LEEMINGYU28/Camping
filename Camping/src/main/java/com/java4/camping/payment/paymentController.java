@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class paymentController {
 
-	@RequestMapping(value = "/payment", method = RequestMethod.GET)
+	@RequestMapping(value = "/paymentpage", method = RequestMethod.GET)
 	public String payment() {
 
 		return "/payment/paymentpage";

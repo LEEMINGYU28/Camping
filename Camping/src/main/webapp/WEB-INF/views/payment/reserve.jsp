@@ -52,9 +52,7 @@
 			</jsp:include>
 		</div>
 	</div>
-	<div>
-        <button onclick="goToDeepReserve()">심층 예약으로 이동</button>
-    </div>
+	
 
 	<footer>
 		<jsp:include page='../layout/footer.jsp'>
@@ -77,9 +75,7 @@
 		};
 		
 		
-		 function goToDeepReserve() {
-		        window.location.href = 'deepReserve'; // 실제 deepReserve.jsp 파일의 경로
-		    }
+		 
 	</script>
 </body>
 

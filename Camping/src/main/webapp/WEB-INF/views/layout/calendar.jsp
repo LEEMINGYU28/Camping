@@ -23,8 +23,6 @@
 </head>
 <body>
 
-	<h1>Product Details</h1>
-	<div id="product-details"></div>
 	<div>
 		<table id="calendar">
 			<thead>
@@ -50,6 +48,12 @@
 		</table>
 		<p id="selected-date">선택한 날짜: 없음</p>
 	</div>
+	<div id="product-details-container" style="display: none;">
+		<jsp:include page='../payment/availableProduct.jsp'>
+			<jsp:param name="pageName" value="Product" />
+		</jsp:include>
+	</div>
+
 	<script>
 		var today = new Date();
 		var currentMonth = today.getMonth();
@@ -160,31 +164,38 @@
 												+ selectedDate : selectedDate)
 										+ "일";
 
-								// 실제로 여기서 AJAX 요청을 보냅니다.
-								$(document).ready(function () {
-								    $.ajax({
-								        type: 'GET',
-								        url: '/availableProducts',
-								        dataType: 'json',
-								        success: function (response) {
-								            console.log(response);
-								            $('#product-details').empty(); // 이전 내용을 지웁니다.
+							}
+						});
 
-								            response.forEach(function (product) {
-								                if (product.available === 0) {
-								                    var productInfo = '<div>' +
-								                        '<p>' + product.name + '</p>' +
-								                        '<p>' + product.price + '원</p>' +
-								                        '</div>';
-								                    $('#product-details').append(productInfo);
-								                }
-								            });
-								        },
-								        error: function (xhr, status, error) {
-								            console.error("AJAX 요청 에러:", error);
-								        }
-								    });
-								});
+		calendarBody
+				.addEventListener(
+						"click",
+						function(e) {
+							if (e.target
+									&& e.target.classList
+											.contains("selectable")) {
+								var selectedDate = e.target.textContent;
+								var selectedMonth = currentMonth + 1;
+								document.getElementById("selected-date").textContent = "선택한 날짜: "
+										+ currentYear
+										+ "년 "
+										+ (selectedMonth < 10 ? "0"
+												+ selectedMonth : selectedMonth)
+										+ "월 "
+										+ (selectedDate < 10 ? "0"
+												+ selectedDate : selectedDate)
+										+ "일";
+
+								var productDetailsContainer = document
+										.getElementById("product-details-container");
+
+								var isHidden = productDetailsContainer.style.display === "none";
+
+								if (isHidden) {
+									productDetailsContainer.style.display = "block";
+								} else {
+									productDetailsContainer.style.display = "none";
+								}
 							}
 						});
 

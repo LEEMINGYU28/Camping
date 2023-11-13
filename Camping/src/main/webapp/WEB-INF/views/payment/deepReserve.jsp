@@ -1,15 +1,23 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	String contextPath = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>예약날짜 선택 및 결제</title>
-<link href="resources/styles/payment/deepReserve.css" rel="stylesheet" />
+<link href="<%=contextPath%>/resources/styles/payment/deepReserve.css"
+	rel="stylesheet" />
 
-<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
-<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon"
+	href="<%=contextPath%>/resources/img/boards/favicon.ico"
+	type="image/x-icon">
+<link rel="icon"
+	href="<%=contextPath%>/resources/img/boards/favicon.ico"
+	type="image/x-icon">
 
 </head>
 <body>
@@ -29,19 +37,22 @@
 
 
 			<div class="calendarContainer">
-				<jsp:include page='../layout/calendar.jsp'>
-					<jsp:param name="pageName" value="calendar" />
-				</jsp:include>
-				<div class="price">
-					<h4>가격등 내용80,000</h4>
-				</div>
+				<c:if test="${not empty selectedProduct}">
+					<div>
+						<h3>Name: ${selectedProduct.name}</h3>
+						<h4>캠핑장 상세정보</h4>
+						<p>${selectedProduct.detail}</p>
+						<p>가격: ${selectedProduct.price}원</p>
+						<!-- Add more details as needed -->
+					</div>
+				</c:if>
 			</div>
 
 		</div>
 
 		<div class="detail">
 			<div>
-				<button onclick="goToSuccessReserve()">결제창으로 이동</button>
+				<button onclick="goToSuccessReserve()">예약하기</button>
 			</div>
 		</div>
 
@@ -55,7 +66,7 @@
 
 	<script>
 		function goToSuccessReserve() {
-			window.location.href = 'successReserve';
+			window.location.href = '/camping/paymentpage';
 		}
 	</script>
 

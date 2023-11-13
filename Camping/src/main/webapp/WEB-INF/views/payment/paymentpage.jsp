@@ -1,15 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%String contextPath = request.getContextPath();%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <link href="resources/styles/payment/paymentpage.css" rel="stylesheet" />
 <script type="text/javascript" src="resources/script/paymentpage.js"></script>
-<title>결제 페이지</title>
+<title>예약확인 페이지</title>
+<link href="<%=contextPath%>/resources/styles/payment/paymentpage.css"
+	rel="stylesheet" />
 
-<link rel="shortcut icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
-<link rel="icon" href="resources/img/boards/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon"
+	href="<%=contextPath%>/resources/img/boards/favicon.ico"
+	type="image/x-icon">
+<link rel="icon"
+	href="<%=contextPath%>/resources/img/boards/favicon.ico"
+	type="image/x-icon">
+
 
 </head>
 <body>
@@ -78,7 +87,7 @@
 					</div>
 					<div class="payment_agree">
 						<input type="checkbox">구매조건 확인 및 결제진행에 동의
-						<button>결제하기</button>
+						<button onclick="goToSuccessReserve()">결제하기</button>
 					</div>
 				</div>
 			</div>
@@ -89,6 +98,12 @@
 			</jsp:include>
 		</footer>
 	</div>
+	
+	<script>
+		function goToSuccessReserve() {
+			window.location.href = 'successReserve';
+		}
+	</script>
 
 </body>
 </html>
