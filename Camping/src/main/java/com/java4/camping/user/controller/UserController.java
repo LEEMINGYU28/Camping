@@ -56,7 +56,7 @@ public class UserController {
 			session.setAttribute("userName", user.getName());
 			return "redirect:/main";
 		} else {
-			model.addAttribute("error", "¾ÆÀÌµð ¶Ç´Â ºñ¹Ð¹øÈ£°¡ Àß¸øµÇ¾ú½À´Ï´Ù.");
+			model.addAttribute("error", "ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ß¸ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			return "redirect:/main";
 		}
 	}
