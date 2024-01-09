@@ -71,7 +71,7 @@ a:not([href]):not([tabindex]) {
 
 						<c:choose>
 							<c:when test="${adminName != null }">
-								<form action="/camping/logout" method="post">
+								<form action="/logout" method="post">
 									<button class="logout-btn">로그아웃</button>
 								</form>
 							</c:when>
@@ -104,7 +104,7 @@ a:not([href]):not([tabindex]) {
 				<span class="close">&times;</span>
 				<c:choose>
 					<c:when test="${adminName == null }">
-						<form action="/camping/login" method="post">
+						<form action="/login" method="post">
 							<label for="admin-id" class="sr-only"><font
 								style="vertical-align: inherit;"><font
 									style="vertical-align: inherit;"></font></font></label> <input type="text"
@@ -118,7 +118,7 @@ a:not([href]):not([tabindex]) {
 						</form>
 					</c:when>
 					<c:when test="${adminName != null }">
-						<form action="/camping/logout" method="post">
+						<form action="/logout" method="post">
 							<button>로그아웃</button>
 						</form>
 					</c:when>
@@ -136,7 +136,7 @@ a:not([href]):not([tabindex]) {
 	<div class="modal">
 		<div class="modal-content">
 			<span class="close">&times;</span>
-			<form action="/camping/regist" method="post">
+			<form action="/regist" method="post">
 				<label for="admin-id" class="sr-only"><font
 					style="vertical-align: inherit;"><font
 						style="vertical-align: inherit;"></font></font></label> <input type="text"

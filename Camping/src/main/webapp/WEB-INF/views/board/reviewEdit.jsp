@@ -19,7 +19,7 @@
 			<textarea class="write-2" id="content" name="content">${review.content}</textarea>
 			<br /> <input class="write-4" type="submit" value="저장" style="height: 33px;"/>
 		</form>
-		<form action="/camping/review">
+		<form action="/review">
 			<button class='write-5' type="submit" value="돌아가기" style="height: 33px;">돌아가기</button>
 		</form>
 	</div>

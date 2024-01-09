@@ -19,6 +19,6 @@
 			<strong>내용:</strong> ${notice.content}
 		</p>
 	</c:if>
-	<a href="/camping/main">돌아가기</a>
+	<a href="/main">돌아가기</a>
 </body>
 </html>

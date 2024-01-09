@@ -55,7 +55,7 @@
 
 						<li><a class="nav-link"> ${userName } 님 반갑습니다.</a></li>
 
-						<form action="/camping/logouts" method="post">
+						<form action="/logouts" method="post">
 							<input type="hidden" name="_method" value="post"> <a
 								class="nav-link" type="button" style="cursor: pointer;"
 								onclick="submitForm();">LOGOUT</a>
@@ -100,7 +100,7 @@
 			</div>
 			<div class="close-area">X</div>
 			<div class="content">
-				<form action="/camping/logins" method="post">
+				<form action="/logins" method="post">
 					<input type="text" id="userId" name="userId" placeholder="아이디">
 					<input type="password" id="userPw" name="userPw" placeholder="비밀번호">
 					<button id="login-button" type="submit">로그인</button>
@@ -169,7 +169,7 @@
 				<h2>회원가입</h2>
 			</div>
 			<div class="join-close-area">X</div>
-			<form action="/camping/register" method="post">
+			<form action="/register" method="post">
 				<div class="input-name">
 					<label>이름</label>
 					<div class="input-form-name">

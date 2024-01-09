@@ -13,7 +13,7 @@
 
 	<div class='form-0'>
 
-		<form action="/camping/reviewCreate" method="POST" enctype="multipart/form-data">
+		<form action="/reviewCreate" method="POST" enctype="multipart/form-data">
 			<input type="hidden" name="id" value="${review.id}">
 			 <input	class='write-1' type="text" name="title" maxlength="44"
 				placeholder="제목 입력, 최대 44자까지 가능합니다">
@@ -27,7 +27,7 @@
 			<button class='write-4' type="submit">글쓰기</button>
 		</form>
 
-		<form action="/camping/review">
+		<form action="/review">
 			<button class='write-5' type="submit" value="돌아가기">돌아가기</button>
 		</form>
 
